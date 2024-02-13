@@ -1,0 +1,70 @@
+
+/Users/dhkumar/Desktop/untitled folder/react/hooked/src/Slices/combineAction.js
+   6:10  warning  'fetchUserRoles' is defined but never used        no-unused-vars
+   7:10  warning  'fetchEmailPreference' is defined but never used  no-unused-vars
+  18:13  warning  'userData' is assigned a value but never used     no-unused-vars
+  18:23  warning  'px4Access' is assigned a value but never used    no-unused-vars
+
+/Users/dhkumar/Desktop/untitled folder/react/hooked/src/Slices/emailPreferenceSlice.js
+  3:8  warning  'Axios' is defined but never used  no-unused-vars
+
+/Users/dhkumar/Desktop/untitled folder/react/hooked/src/Slices/userProfileSlice.js
+  40:11  warning  'siginResponse' is assigned a value but never used  no-unused-vars
+
+/Users/dhkumar/Desktop/untitled folder/react/hooked/src/Slices/userRolesSlice.js
+  3:8  warning  'Axios' is defined but never used  no-unused-vars
+
+/Users/dhkumar/Desktop/untitled folder/react/hooked/src/components/Layout.js
+   8:10  warning  'Outlet' is defined but never used                      no-unused-vars
+  34:10  warning  'dropdown1Value' is assigned a value but never used     no-unused-vars
+  35:10  warning  'dropdown2Value' is assigned a value but never used     no-unused-vars
+  35:26  warning  'setDropdown2Value' is assigned a value but never used  no-unused-vars
+
+/Users/dhkumar/Desktop/untitled folder/react/hooked/src/components/ModernTable.js
+    8:8   warning  'TableCell' is defined but never used                         no-unused-vars
+   14:8   warning  'MenuItem' is defined but never used                          no-unused-vars
+   83:7   warning  'StyledSearchIconWrapper' is assigned a value but never used  no-unused-vars
+   88:7   warning  'StyledSearchIcon' is assigned a value but never used         no-unused-vars
+   93:7   warning  'StyledSelect' is assigned a value but never used             no-unused-vars
+  111:10  warning  'filterDefaultObj' is assigned a value but never used         no-unused-vars
+  214:11  warning  'width' is assigned a value but never used                    no-unused-vars
+
+/Users/dhkumar/Desktop/untitled folder/react/hooked/src/components/customDatePicker.js
+  104:8  warning  React Hook useEffect has missing dependencies: 'dispatch' and 'dropdownValue'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  112:8  warning  React Hook useEffect has a missing dependency: 'constituteComponentData'. Either include it or remove the dependency array         react-hooks/exhaustive-deps
+
+/Users/dhkumar/Desktop/untitled folder/react/hooked/src/components/customDropdown.js
+  42:6  warning  React Hook useEffect has missing dependencies: 'isMultiSelect' and 'noneSelectedOption'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  72:9  warning  No duplicate props allowed                                                                                                                   react/jsx-no-duplicate-props
+
+/Users/dhkumar/Desktop/untitled folder/react/hooked/src/components/customHeader.js
+  14:17  warning  'subEntity' is assigned a value but never used  no-unused-vars
+
+/Users/dhkumar/Desktop/untitled folder/react/hooked/src/components/customtextField.js
+  13:10  warning  'searchText' is assigned a value but never used  no-unused-vars
+
+/Users/dhkumar/Desktop/untitled folder/react/hooked/src/components/formWrapper.js
+  117:6  warning  React Hook useEffect has missing dependencies: 'createValuAandOptObj' and 'pathPref'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  135:6  warning  React Hook useEffect has missing dependencies: 'createValuAandOptObj' and 'layout'. Either include them or remove the dependency array    react-hooks/exhaustive-deps
+  222:9  warning  'handletextFieldChange' is assigned a value but never used                                                                                no-unused-vars
+
+/Users/dhkumar/Desktop/untitled folder/react/hooked/src/components/mainComponent.js
+  1:21  warning  'useLocation' is defined but never used  no-unused-vars
+
+/Users/dhkumar/Desktop/untitled folder/react/hooked/src/components/sidebar.js
+   5:10  warning  'NavLink' is defined but never used            no-unused-vars
+  72:9   warning  'navigate' is assigned a value but never used  no-unused-vars
+
+/Users/dhkumar/Desktop/untitled folder/react/hooked/src/components/tableWrapper.js
+   5:20  warning  'useLocation' is defined but never used            no-unused-vars
+   7:17  warning  'useState' is defined but never used               no-unused-vars
+   7:27  warning  'useEffect' is defined but never used              no-unused-vars
+   8:8   warning  'IconButton' is defined but never used             no-unused-vars
+  10:7   warning  'columnConfig' is assigned a value but never used  no-unused-vars
+
+/Users/dhkumar/Desktop/untitled folder/react/hooked/src/pages/Dashboard.js
+  1:17  warning  'useState' is defined but never used   no-unused-vars
+  1:27  warning  'useEffect' is defined but never used  no-unused-vars
+
+✖ 37 problems (0 errors, 37 warnings)
+
