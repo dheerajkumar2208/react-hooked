@@ -11,7 +11,7 @@ import {useParams } from 'react-router-dom';
 import {DASHBOARD_NAMES, TEXT_CONSTANT} from '../constants/constant'
 export default function Navbar() {
 
-  let { entity, subEntity } = useParams();
+  let { entity } = useParams();
   let currentMode = entity ? DASHBOARD_NAMES[entity] : TEXT_CONSTANT.HeaderText;
   return (
     

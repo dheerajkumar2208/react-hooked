@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { List, ListItem, ListItemText, Collapse, Drawer } from '@mui/material';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
-import { NavLink, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import menuItems from '../config/sidebar.json';
 import './style/sidebar.scss';
 
@@ -69,7 +69,6 @@ const SidebarItem = ({ item, depth = 0, selectedIndex, setSelectedUrl, handleCli
 
 const Sidebar = (props) => {
   const location = useLocation();
-  const navigate = useNavigate();
   const [selectedIndex, setSelectedUrl] = useState("");
   let { entity } = useParams();
   let constantConfig = menuItems[entity] || {};

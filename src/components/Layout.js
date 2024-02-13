@@ -5,8 +5,6 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DatePicker from '@mui/lab/DatePicker';
 import CustomDropdown from './CustomDropdown';
 import Sidebar from './sidebar';
-import { Outlet } from "react-router-dom";
-
 
 const dropdownData = [
   {
@@ -31,8 +29,7 @@ const dropdownData = [
 ];
 
 const DropdownGrid = () => {
-  const [dropdown1Value, setDropdown1Value] = useState('');
-  const [dropdown2Value, setDropdown2Value] = useState('');
+  const [setDropdown1Value] = useState('');
   // Repeat the pattern for other dropdown states
 
   const handleDateChange = (date) => {

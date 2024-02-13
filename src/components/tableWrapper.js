@@ -2,16 +2,15 @@ import ModernTable from "./ModernTable";
 import { dataTables } from '../config/data'
 import headersData from '../config/metadata/wizard.json';
 
-import {useParams, useLocation } from 'react-router-dom';
+import {useParams } from 'react-router-dom';
 // import MyDatePicker from './DatePicker.js'
-import React, { useState, useEffect } from "react";
-import IconButton from '@mui/material/IconButton';
+import React from "react";
 
-const columnConfig = {
-  columnName1: { dropdownOptions: ['Option1', 'Option2', 'Option3'] },
-  columnName2: {}, // Default to text field
-  // ... other columns
-};
+// const columnConfig = {
+//   columnName1: { dropdownOptions: ['Option1', 'Option2', 'Option3'] },
+//   columnName2: {}, // Default to text field
+//   // ... other columns
+// };
 
 
 export default function TableWrapper() {

@@ -1,17 +1,15 @@
 // ModernTable.js
-
+/* eslint-disable */
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import TablePagination from '@mui/material/TablePagination';
 import TextField from '@mui/material/TextField';
-import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import styled from 'styled-components';
 import SearchIcon from '@mui/icons-material/Search';
@@ -80,19 +78,6 @@ padding-right : 0px;
   /* Add your custom styles here */
 `;
 
-const StyledSearchIconWrapper = styled.span`
-  margin-right: 8px;
-  color: black; /* Change this color to your preferred color */
-`;
-
-const StyledSearchIcon = styled(SearchIcon)`
-  /* Add your custom styles here if needed */
-`;
-
-
-const StyledSelect = styled(Select)`
-  width: 100%;
-`;
 
 const StyledPaper = styled(Paper)`
   /* Add your custom styles here */
@@ -211,7 +196,6 @@ let sx = {}
           width:"30px"
         }
       }
-      let width = config.width ? config.width : '65px'
       return (
         <StyledTableCellHeader key={index}>
         

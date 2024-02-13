@@ -10,7 +10,7 @@ const CustomTextField = ({ mode, keyName, label, value, onSave }) => {
   const [isEditOpen, setEditOpen] = useState(false);
   const [isSearchOpen, setSearchOpen] = useState(false);
   const [localValue, setLocalValue] = useState(value || ''); // Use local state for changes
-  const [searchText, setSearchText] = useState('');
+  // const [searchText, setSearchText] = useState('');
   const [highlightedText, setHighlightedText] = useState(value || '');
 
   useEffect(() => {
@@ -63,7 +63,7 @@ const CustomTextField = ({ mode, keyName, label, value, onSave }) => {
   };
 
   const handleSearchChange = (event) => {
-    setSearchText(event.target.value);
+    // setSearchText(event.target.value);
     highlightText(event.target.value);
   };
 
