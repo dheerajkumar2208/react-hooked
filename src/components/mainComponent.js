@@ -17,8 +17,8 @@ const BodyComponent = () => {
   const [selectedButton, setSelectedButton] = useState(btnGroup.UAT.name);
   const pathPref = subEntity.split("-");
 
-  let redirectionUrl = entity === 'apac' ? '/nonApac' : '/apac',
-      redirectionName = entity === 'apac' ? 'Non-APAC' : 'APAC'
+  let redirectionUrl = entity === 'wizard' ? '/nonWizard' : '/wizard',
+      redirectionName = entity === 'wizard' ? 'Non-WIZARD' : 'WIZARD'
 
 
   const convertString = inputString => {

@@ -19,10 +19,10 @@ export const TEXT_CONSTANT = {
         }
     }
     export const DASHBOARD_NAMES = {
-        apac : 'APAC',
-        nonApac : 'NON APAC',
-        singco : 'SING CO',
-        sbspx4 : 'SBS PX4'
+        wizard : 'WIZARD',
+        nonWizard : 'NON WIZARD',
+        knight : 'SING CO',
+        royale : 'SBS PX4'
     }
     
     export const componentIdentifier = {
@@ -35,7 +35,7 @@ export const TEXT_CONSTANT = {
         // common: {
     
         // },
-        apac : {
+        wizard : {
             company_code: "IN_COMPANY_CD",
             country: "IN_COUNTRY_CD",
             Year: "IN_FISCAL_YEAR",
@@ -60,7 +60,7 @@ export const TEXT_CONSTANT = {
         "appName": "eurovat_snowflake",
         "appKey": "eurovat_snowflake",
         "type": "jdbc",
-        "queryName": "SP_APAC_TAX_RPT_REQ_SUBMIT",
+        "queryName": "SP_WIZARD_TAX_RPT_REQ_SUBMIT",
         "version": "v2.0",
         "useCache": false,
         "acmtoken": "",

@@ -71,8 +71,8 @@
           "type": "dropdown",
           "dropdownOptions": [
             { "value": "GL Summary Report", "label": "GL Summary Report" },
-            { "value": "Panama PLI Report", "label": "Panama PLI Report" },
-            { "value": "Panama Summary Report", "label": "Panama Summary Report" },
+            { "value": "Sunama PLI Report", "label": "Sunama PLI Report" },
+            { "value": "Sunama Summary Report", "label": "Sunama Summary Report" },
             { "value": "PLI Bundle Report", "label": "PLI Bundle Report"},
             { "value": "PLI Detail Report", "label": "PLI Detail Report"}
           ]
@@ -151,7 +151,7 @@
             "type": "datePicker",
             "value": "",
             "config": {
-              "for": "apac",
+              "for": "wizard",
               "entity": {
                 "fiscal": {
                   "label": "Fiscal",
@@ -228,7 +228,7 @@
             "type": "datePicker",
             "value": "",
             "config": {
-              "for": "apac",
+              "for": "wizard",
               "entity": {
                 "fiscal": {
                   "label": "Fiscal",
@@ -303,7 +303,7 @@
             "type": "datePicker",
             "value": "",
             "config": {
-              "for": "apac",
+              "for": "wizard",
               "entity": {
                 "fiscal": {
                   "label": "Fiscal",
@@ -378,7 +378,7 @@
             "type": "datePicker",
             "value": "",
             "config": {
-              "for": "apac",
+              "for": "wizard",
               "entity": {
                 "fiscal": {
                   "label": "Fiscal",
@@ -453,7 +453,7 @@
             "type": "datePicker",
             "value": "",
             "config": {
-              "for": "apac",
+              "for": "wizard",
               "entity": {
                 "fiscal": {
                   "label": "Fiscal",

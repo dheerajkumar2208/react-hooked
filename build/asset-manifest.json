@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/react-hooked/static/css/main.b61bb3cb.css",
-    "main.js": "/react-hooked/static/js/main.82b18031.js",
+    "main.js": "/react-hooked/static/js/main.4c957bfa.js",
     "static/js/787.33ee3926.chunk.js": "/react-hooked/static/js/787.33ee3926.chunk.js",
     "index.html": "/react-hooked/index.html",
     "main.b61bb3cb.css.map": "/react-hooked/static/css/main.b61bb3cb.css.map",
-    "main.82b18031.js.map": "/react-hooked/static/js/main.82b18031.js.map",
+    "main.4c957bfa.js.map": "/react-hooked/static/js/main.4c957bfa.js.map",
     "787.33ee3926.chunk.js.map": "/react-hooked/static/js/787.33ee3926.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b61bb3cb.css",
-    "static/js/main.82b18031.js"
+    "static/js/main.4c957bfa.js"
   ]
 }

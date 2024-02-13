@@ -14,28 +14,28 @@ const Dashboard = (props) => {
      
     <Grid container columnSpacing = {2} spacing={10} xs={12} md={12} direction="row">
     <Grid item xs={12} md={3}>
-    <Button color="secondary"><NavLink className='btn-dashboard' to="/sbspx4">
+    <Button color="secondary"><NavLink className='btn-dashboard' to="/royale">
            <div className="movie-ref">
                SBS-PX4
             </div>
          </NavLink></Button>
         </Grid> 
       <Grid item xs={12} md={3}>
-      <Button color="secondary"><NavLink className='btn-dashboard' to="/apac">
+      <Button color="secondary"><NavLink className='btn-dashboard' to="/wizard">
            <div className="movie-ref">
-               Apac
+               WIZARD
             </div>
          </NavLink></Button>
         </Grid> 
         <Grid item xs={12} md={3}>
-      <Button color="secondary"><NavLink className='btn-dashboard' to="/nonApac">
+      <Button color="secondary"><NavLink className='btn-dashboard' to="/nonWizard">
            <div className="movie-ref">
-               Non Apac
+               Non WIZARD
             </div>
          </NavLink></Button>
         </Grid> 
         <Grid item xs={12} md={3}>
-      <Button color="secondary"><NavLink className='btn-dashboard' to="/singco">
+      <Button color="secondary"><NavLink className='btn-dashboard' to="/knight">
            <div className="movie-ref">
                Sing Co
             </div>

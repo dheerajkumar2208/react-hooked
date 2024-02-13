@@ -20,7 +20,7 @@ export const api = createApi({
   endpoints: (builder) => ({
     createPost: builder.mutation({
       query: (postData) => ({
-        url: 'gsf/eurovat_snowflake/businessareas/finance/subjectareas/eurovat_snowflake/services/MC_APAC_TAX_RPT_FISCAL_CAL_LIST',
+        url: 'gsf/eurovat_snowflake/businessareas/finance/subjectareas/eurovat_snowflake/services/MC_WIZARD_TAX_RPT_FISCAL_CAL_LIST',
         method: 'POST',
         body: postData,
       }),

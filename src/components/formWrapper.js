@@ -183,7 +183,7 @@ export default function FormWrapper() {
     }
   };
   const setSelectedData = (value, name) => {
-    if (name === "company_code" && entity === "apac") {
+    if (name === "company_code" && entity === "wizard") {
       // if(value.value === '0082'){
       let opOb = optionsObj;
       opOb.country.forEach(elm => {

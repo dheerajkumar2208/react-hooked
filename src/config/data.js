@@ -1,5 +1,5 @@
 const headers = {
-    apac : [
+    wizard : [
         'RequestID',
         'DateSubmitted',
         'UserName',
@@ -13,7 +13,7 @@ const headers = {
         'Status',
         'Download',    
       ],
-    nonApac : [
+    nonWizard : [
         'RequestID',
         'DateSubmitted',
         'UserName',
@@ -24,7 +24,7 @@ const headers = {
         'Status',
         'Download',    
       ],
-      singco : [
+      knight : [
         'RequestID',
         'DateSubmitted',
         'UserName',
@@ -35,7 +35,7 @@ const headers = {
         'Status',
         'Download',
       ],
-      sbspx4 : [
+      royale : [
         'RequestID',
         'SubmittedOn',
         'UserName',
@@ -55,7 +55,7 @@ const headers = {
 }
 
 const dataTables = {
-    apac : [
+    wizard : [
         {
           RequestID: 130,
           DateSubmitted: '2023-09-22 09:57:41.0',
@@ -144,7 +144,7 @@ const dataTables = {
           RequestID: 124,
           DateSubmitted: '2023-09-11 02:52:45.0',
           UserName: 'Yuan Yuan Guoon',
-          ReportType: 'Panama Summary Report',
+          ReportType: 'Sunama Summary Report',
           Country: 'AU',
           FiscalYear: '2023',
           FiscalPeriod: '11',
@@ -186,7 +186,7 @@ const dataTables = {
           RequestID: 121,
           DateSubmitted: '2023-07-11 15:59:17.0',
           UserName: 'Peter Tran',
-          ReportType: 'Panama PLI Report',
+          ReportType: 'Sunama PLI Report',
           Country: 'NZ',
           FiscalYear: '2020',
           FiscalPeriod: '1',
@@ -253,7 +253,7 @@ const dataTables = {
           Download: 'Download',
         },
       ],
-      nonApac : [
+      nonWizard : [
         {
           RequestID: 33927,
           DateSubmitted: '09/28/23 15:32 A.M.',
@@ -335,7 +335,7 @@ const dataTables = {
           RequestID: 33920,
           DateSubmitted: '09/22/23 10:57 A.M.',
           UserName: 'Jessica Duggan',
-          ReportType: 'Panama PLI Report',
+          ReportType: 'Sunama PLI Report',
           ReportFormat: 'XLS',
           Filters: 'CountryList: AL,CountryRegion: EUR,Vendor Type: ,Date From: 01/08/2023,Date To: 02/08/2023,Gift Card: N,Bundle: N,Exclude Redemption Content: N,HC Flag: Y,HC Color: N',
           FileSize: '3176.17',
@@ -368,7 +368,7 @@ const dataTables = {
           RequestID: 33917,
           DateSubmitted: '07/10/23 10:03 A.M.',
           UserName: 'Jyoti Ranjan Swain',
-          ReportType: 'Panama PLI Report',
+          ReportType: 'Sunama PLI Report',
           ReportFormat: 'XLS',
           Filters: 'CountryList: GB,CountryRegion: EUR,Vendor Type: ,Fiscal Year : 2023,Fiscal Period: 2,Gift Card: N,Exclude Redemption Content: N,HC Flag: N,HC Color: N',
           FileSize: '531.76',
@@ -409,7 +409,7 @@ const dataTables = {
           Download: 'Download',
         },
       ],
-      singco : [
+      knight : [
         {
           RequestID: 301,
           DateSubmitted: '09/28/23 10:36 A.M.',
@@ -565,7 +565,7 @@ const dataTables = {
           Download: 'Download',
         },
       ],
-      sbspx4 : [
+      royale : [
         {
           RequestID: 1478,
           SubmittedOn: '2023-10-03 11:29:09',
@@ -810,7 +810,7 @@ const dataTables = {
 }
 
 const dropdownValues = { 
-  MC_APAC_TAX_RPT_GENERIC : {
+  MC_WIZARD_TAX_RPT_GENERIC : {
     "msg": "Query Executed!",
     "status": "SUCCESS",
     "data": {
@@ -819,7 +819,7 @@ const dropdownValues = {
         "fetchSize": 2000,
         "appName": "eurovat_snowflake",
         "recordsProcessed": 10,
-        "serviceName": "MC_APAC_TAX_RPT_GENERIC",
+        "serviceName": "MC_WIZARD_TAX_RPT_GENERIC",
         "version": "ver1",
         "status": "success"
     },
@@ -857,12 +857,12 @@ const dropdownValues = {
         {
             "REF_TYPE_CD": "REPORT_TYPE",
             "REF_CD": "PANAMA_PLI_REPORT",
-            "REF_DESC": "Panama PLI Report"
+            "REF_DESC": "Sunama PLI Report"
         },
         {
             "REF_TYPE_CD": "REPORT_TYPE",
             "REF_CD": "PANAMA_SUM_REPORT",
-            "REF_DESC": "Panama Summary Report"
+            "REF_DESC": "Sunama Summary Report"
         },
         {
             "REF_TYPE_CD": "REPORT_TYPE",

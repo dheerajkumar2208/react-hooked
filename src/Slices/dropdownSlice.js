@@ -46,7 +46,7 @@ export const dropdownSlice = createSlice({
     //   // immutable state based off those changes
     // //   state.value += 1
    
-    // state.MC_APAC_TAX_RPT_GENERIC = dropdownValues.MC_APAC_TAX_RPT_GENERIC.datas
+    // state.MC_WIZARD_TAX_RPT_GENERIC = dropdownValues.MC_WIZARD_TAX_RPT_GENERIC.datas
     // state.MC_IFIN_VENDOR_IND = dropdownValues.MC_IFIN_VENDOR_IND.datas
     // state.MC_EUR_VAT_WEB_ORDER_TYPE_LIST= dropdownValues.MC_EUR_VAT_WEB_ORDER_TYPE_LIST.datas
     // },

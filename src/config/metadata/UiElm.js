@@ -1,7 +1,7 @@
 let UiElm = {
   "dropdown": {
     "company_code": {
-      "queryName": "MC_APAC_TAX_RPT_GENERIC",
+      "queryName": "MC_WIZARD_TAX_RPT_GENERIC",
       "REF_TYPE_CD": "COMPANY_CD",
       "key": "",
       "name": "Company Code",
@@ -9,7 +9,7 @@ let UiElm = {
       "value": "REF_CD"
     },
     "country": {
-      "queryName": "MC_APAC_TAX_RPT_GENERIC",
+      "queryName": "MC_WIZARD_TAX_RPT_GENERIC",
       "REF_TYPE_CD": "COUNTRY_CD",
       "key": "",
       "name": "Country",
