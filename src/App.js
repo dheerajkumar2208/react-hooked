@@ -21,9 +21,7 @@ const App = () => {
         <Route path=":entity" element={<Navigate to="myRequest-all" />} />
         <Route path=":entity/:subEntity" element={<BodyComponent />} />
       </Route>
-    ), {
-      basename: "/test-UI",
-    }
+    )
   );
 
   return (
