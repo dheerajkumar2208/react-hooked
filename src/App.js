@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import CustomHeader from "./components/customHeader";
+import Dashboard from "./pages/Dashboard";
+import BodyComponent from "./pages/BodyComponent";
+// import { StyledEngineProvider } from "@mui/material/styles";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+  Navigate
+} from "react-router-dom";
+
+const App = () => {
+  const routes = createBrowserRouter(
+    createRoutesFromElements(
+      <Route element={<CustomHeader />}>
+        <Route index element={<Dashboard />} />
+        <Route path=":entity" element={<Navigate to="myRequest-all" />} />
+        <Route path=":entity/:subEntity" element={<BodyComponent />} />
+      </Route>
+    ), {
+      basename: "/test-UI",
+    }
   );
-}
+
+  return (
+    // <StyledEngineProvider injectFirst>
+      <RouterProvider router={routes} />
+    // </StyledEngineProvider>
+  );
+};
 
 export default App;

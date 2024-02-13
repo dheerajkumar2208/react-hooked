@@ -1,0 +1,497 @@
+{
+  "myRequest": {
+    "name": "My Requests",
+    "config": {
+      "headers": [
+        {
+          "label"  : "Request ID",
+          "dataKey" : "RequestID"
+        },
+        {
+          "label"  : "Date Submitted",
+          "dataKey" : "DateSubmitted"
+        },
+        {
+          "label"  : "User Name",
+          "dataKey" : "UserName"
+        },
+        {
+          "label"  : "Report Type",
+          "dataKey" : "ReportType"
+        },
+        {
+          "label"  : "Country",
+          "dataKey" : "Country"
+        },
+        {
+          "label"  : "Fiscal Year",
+          "dataKey" : "FiscalYear"
+        },
+        {
+          "label"  : "Fiscal Period",
+          "dataKey" : "FiscalPeriod"
+        },
+        {
+          "label"  : "From Date",
+          "dataKey" : "FromDate"
+        },
+        {
+          "label"  : "To Date",
+          "dataKey" : "ToDate"
+        },
+        {
+          "label"  : "File Size",
+          "dataKey" : "FileSize"
+        },
+        {
+          "label"  : "Status",
+          "dataKey" : "Status"
+        },
+        {
+          "label"  : "Download",
+          "dataKey" : "Download"
+        }
+        
+      ],
+
+      "columnConfig": {
+        "RequestID": {
+          "type": "textfield"
+        
+        },
+        "DateSubmitted": {
+          "type": "textfield",
+          "width": "180px"
+        },
+        "UserName": {
+          "type": "textfield",
+          "width": "90px"
+        },
+        "ReportType": {
+          "type": "dropdown",
+          "dropdownOptions": [
+            { "value": "GL Summary Report", "label": "GL Summary Report" },
+            { "value": "Panama PLI Report", "label": "Panama PLI Report" },
+            { "value": "Panama Summary Report", "label": "Panama Summary Report" },
+            { "value": "PLI Bundle Report", "label": "PLI Bundle Report"},
+            { "value": "PLI Detail Report", "label": "PLI Detail Report"}
+          ]
+        },
+        "Country": {
+          "type": "dropdown",
+          "dropdownOptions": [
+            { "value": "AU", "label": "AU" },
+            { "value": "NZ", "label": "NZ" },
+            { "value": "JP", "label": "JP" }
+          ]
+        },
+        "FiscalYear": {
+          "type": "dropdown",
+          "dropdownOptions": [
+            { "value": "2023", "label": "2023" },
+            { "value": "2022", "label": "2022" },
+            { "value": "2021", "label": "2021" },
+            { "value": "2020", "label": "2020" }
+          ]
+        },
+        "FiscalPeriod": {
+          "type": "dropdown",
+          "dropdownOptions": [
+            { "value": "1", "label": "1" },
+            { "value": "2", "label": "2" },
+            { "value": "3", "label": "3" },
+            { "value": "4", "label": "4" },
+            { "value": "5", "label": "5" },
+            { "value": "6", "label": "6" },
+            { "value": "7", "label": "7" },
+            { "value": "8", "label": "8" },
+            { "value": "9", "label": "9" },
+            { "value": "10", "label": "10" },
+            { "value": "11", "label": "11" },
+            { "value": "12", "label": "12" }
+          ]
+        },
+        "FromDate": {},
+        "ToDate": {},
+        "FileSize": {},
+        "Status": {
+          "type": "dropdown",
+          "dropdownOptions": [
+            { "value": "Submitted", "label": "Submitted" },
+            { "value": "Completed", "label": "Completed" },
+            { "value": "No Data", "label": "No Data" },
+            { "value": "In Progress", "label": "In Progress"},
+            { "value": "Error", "label": "Error"}
+          ]
+        },
+        "Download": {}
+      }
+    }
+  },
+  "newRequest": {
+    "name": "New Requests",
+    "pages": {
+      "GL_Summary": {
+        "config": [
+          {
+            "type": "dropdown",
+            "name": "company_code",
+            "label": "Company Code",
+            "value": "",
+            "required": true
+          },
+          {
+            "type": "dropdown",
+            "name": "country",
+            "label": "Country",
+            "value": "",
+            "required": true
+          },
+          {
+            "type": "datePicker",
+            "value": "",
+            "config": {
+              "for": "apac",
+              "entity": {
+                "fiscal": {
+                  "label": "Fiscal",
+                  "value": "fiscal",
+                  "child": [
+                    {
+                      "name": "Year",
+                      "multiSelect": false,
+                      "search": false,
+                      "required": true
+                    },
+                    {
+                      "name": "Quarter",
+                      "multiSelect": false,
+                      "search": false,
+                      "required": true
+                    },
+                    {
+                      "name": "Period",
+                      "multiSelect": true,
+                      "search": false,
+                      "required": true
+                    }
+                  ],
+
+                  "query": "MC_EUR_VAT_FISCAL_CAL_LIST"
+                },
+                "date": {
+                  "label": "Date",
+                  "value": "date",
+                  "query": ""
+                }
+              }
+            },
+            "name": "datepicker_fiscalCalDate"
+          }
+        ]
+      },
+      "Panama_PLI": {
+        "config": [
+          {
+            "type": "dropdown",
+            "name": "company_code",
+            "label": "Company Code",
+            "required": true
+          },
+          {
+            "type": "dropdown",
+            "name": "country",
+            "label": "Country",
+            "required": true
+          },
+          {
+            "type": "dropdown",
+            "name": "businessmodel",
+            "label": "Business Model",
+            "required": false,
+            "isMultiSelect": true
+          },
+          {
+            "type": "dropdown",
+            "name": "weborder",
+            "label": "Web Order Type",
+            "required": false,
+            "isMultiSelect": true
+          },
+          {
+            "type": "textarea",
+            "name": "glacctnum",
+            "label": "GL Account Number",
+            "required": false
+          },
+          {
+            "type": "datePicker",
+            "value": "",
+            "config": {
+              "for": "apac",
+              "entity": {
+                "fiscal": {
+                  "label": "Fiscal",
+                  "value": "fiscal",
+                  "child": [
+                    {
+                      "name": "Year",
+                      "multiSelect": false,
+                      "search": false,
+                      "required": true
+                    },
+                    {
+                      "name": "Quarter",
+                      "multiSelect": false,
+                      "search": false,
+                      "required": true
+                    },
+                    {
+                      "name": "Period",
+                      "multiSelect": false,
+                      "search": false,
+                      "required": true
+                    }
+                  ],
+
+                  "query": "MC_EUR_VAT_FISCAL_CAL_LIST"
+                },
+                "date": {
+                  "label": "Date",
+                  "value": "date",
+                  "query": ""
+                }
+              }
+            },
+            "name": "datepicker_fiscalCalDate"
+          }
+        ]
+      },
+      "Panama_Summary": {
+        "config": [
+          {
+            "type": "dropdown",
+            "name": "company_code",
+            "label": "Company Code",
+            "required": true
+          },
+          {
+            "type": "dropdown",
+            "name": "country",
+            "label": "Country",
+            "required": true
+          },
+          {
+            "type": "dropdown",
+            "name": "businessmodel",
+            "label": "Business Model",
+            "required": false
+          },
+          {
+            "type": "dropdown",
+            "name": "weborder",
+            "label": "Web Order Type",
+            "required": false
+          },
+          {
+            "type": "textarea",
+            "name": "glacctnum",
+            "label": "GL Account Number",
+            "required": false
+          },
+          {
+            "type": "datePicker",
+            "value": "",
+            "config": {
+              "for": "apac",
+              "entity": {
+                "fiscal": {
+                  "label": "Fiscal",
+                  "value": "fiscal",
+                  "child": [
+                    {
+                      "name": "Year",
+                      "multiSelect": false,
+                      "search": false,
+                      "required": true
+                    },
+                    {
+                      "name": "Quarter",
+                      "multiSelect": false,
+                      "search": false,
+                      "required": true
+                    },
+                    {
+                      "name": "Period",
+                      "multiSelect": false,
+                      "search": false,
+                      "required": true
+                    }
+                  ],
+
+                  "query": "MC_EUR_VAT_FISCAL_CAL_LIST"
+                },
+                "date": {
+                  "label": "Date",
+                  "value": "date",
+                  "query": ""
+                }
+              }
+            },
+            "name": "datepicker_fiscalCalDate"
+          }
+        ]
+      },
+      "PLI_Bundle": {
+        "config": [
+          {
+            "type": "dropdown",
+            "name": "company_code",
+            "label": "Company Code",
+            "required": true
+          },
+          {
+            "type": "dropdown",
+            "name": "country",
+            "label": "Country",
+            "required": true
+          },
+          {
+            "type": "dropdown",
+            "name": "businessmodel",
+            "label": "Business Model",
+            "required": false
+          },
+          {
+            "type": "dropdown",
+            "name": "weborder",
+            "label": "Web Order Type",
+            "required": false
+          },
+          {
+            "type": "textarea",
+            "name": "glacctnum",
+            "label": "GL Account Number",
+            "required": false
+          },
+          {
+            "type": "datePicker",
+            "value": "",
+            "config": {
+              "for": "apac",
+              "entity": {
+                "fiscal": {
+                  "label": "Fiscal",
+                  "value": "fiscal",
+                  "child": [
+                    {
+                      "name": "Year",
+                      "multiSelect": false,
+                      "search": false,
+                      "required": true
+                    },
+                    {
+                      "name": "Quarter",
+                      "multiSelect": false,
+                      "search": false,
+                      "required": true
+                    },
+                    {
+                      "name": "Period",
+                      "multiSelect": false,
+                      "search": false,
+                      "required": true
+                    }
+                  ],
+
+                  "query": "MC_EUR_VAT_FISCAL_CAL_LIST"
+                },
+                "date": {
+                  "label": "Date",
+                  "value": "date",
+                  "query": ""
+                }
+              }
+            },
+            "name": "datepicker_fiscalCalDate"
+          }
+        ]
+      },
+      "PLI_Detail": {
+        "config": [
+          {
+            "type": "dropdown",
+            "name": "company_code",
+            "label": "Company Code",
+            "required": true
+          },
+          {
+            "type": "dropdown",
+            "name": "country",
+            "label": "Country",
+            "required": true
+          },
+          {
+            "type": "dropdown",
+            "name": "businessmodel",
+            "label": "Business Model",
+            "required": false
+          },
+          {
+            "type": "dropdown",
+            "name": "weborder",
+            "label": "Web Order Type",
+            "required": false
+          },
+          {
+            "type": "textarea",
+            "name": "glacctnum",
+            "label": "GL Account Number",
+            "required": false
+          },
+          {
+            "type": "datePicker",
+            "value": "",
+            "config": {
+              "for": "apac",
+              "entity": {
+                "fiscal": {
+                  "label": "Fiscal",
+                  "value": "fiscal",
+                  "child": [
+                    {
+                      "name": "Year",
+                      "multiSelect": false,
+                      "search": false,
+                      "required": true
+                    },
+                    {
+                      "name": "Quarter",
+                      "multiSelect": false,
+                      "search": false,
+                      "required": true
+                    },
+                    {
+                      "name": "Period",
+                      "multiSelect": false,
+                      "search": false,
+                      "required": true
+                    }
+                  ],
+
+                  "query": "MC_EUR_VAT_FISCAL_CAL_LIST"
+                },
+                "date": {
+                  "label": "Date",
+                  "value": "date",
+                  "query": ""
+                }
+              }
+            },
+            "name": "datepicker_fiscalCalDate"
+          }
+        ]
+      }
+    }
+  }
+}

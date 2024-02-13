@@ -1,0 +1,358 @@
+{
+  "apac": [
+    {
+      "name": "My Request",
+      "children": [
+        {
+          "name": "All",
+          "url": "/apac/myRequest-All"
+        },
+        {
+          "name": "GL Summary Report",
+          "url": "/apac/myRequest-GL_Summary"
+        },
+        {
+          "name": "Panama PLI Report",
+          "url": "/apac/myRequest-Panama_PLI"
+        },
+        {
+          "name": "Panama Summary Report",
+          "url": "/apac/myRequest-Panama_Summary"
+        },
+        {
+          "name": "PLI Bundle Report",
+          "url": "/apac/myRequest-PLI_Bundle"
+        },
+        {
+          "name": "PLI Detail Report",
+          "url": "/apac/myRequest-PLI_Detail"
+        }
+      ]
+    },
+    {
+      "name": "New Request",
+      "children": [
+        {
+          "name": "GL Summary Report",
+          "url": "/apac/newRequest-GL_Summary"
+        },
+        {
+          "name": "Panama PLI Report",
+          "url": "/apac/newRequest-Panama_PLI"
+        },
+        {
+          "name": "Panama Summary Report",
+          "url": "/apac/newRequest-Panama_Summary"
+        },
+        {
+          "name": "PLI Bundle Report",
+          "url": "/apac/newRequest-PLI_Bundle"
+        },
+        {
+          "name": "PLI Detail Report",
+          "url": "/apac/newRequest-PLI_Detail"
+        }
+      ]
+    },
+    {
+      "name": "Scheduled Request",
+      "children": [
+        {
+          "name": "GL Summary Report",
+          "url": "/apac/scheduleReq-GL_Summary"
+        },
+        {
+          "name": "PLI Report",
+          "url": "/apac/scheduleReq-PLI"
+        }
+      ]
+    }
+  ],
+  "nonApac": [
+    {
+      "name": "My Request",
+      "children": [
+        {
+          "name": "All",
+          "url": "/nonApac/myRequest-all"
+        },
+        {
+          "name": "Summary by Country",
+          "url": "/nonApac/myRequest-Summary"
+        },
+        {
+          "name": "PLI Listing",
+          "url": "/nonApac/myRequest-plilisting"
+        },
+        {
+          "name": "Invoice Header",
+          "url": "/nonApac/myRequest-invoiceheader"
+        },
+        {
+          "name": "Web Order PLI",
+          "url": "/nonApac/myRequest-weborder"
+        },
+        {
+          "name": "Panama PLI Report",
+          "url": "/nonApac/myRequest-Panama_Pli"
+        }
+      ]
+    },
+    {
+      "name": "New Request",
+      "children": [
+        {
+          "name": "Summary",
+          "url": "/nonApac/newRequest-summary"
+        },
+        {
+          "name": "PLI Listing",
+          "url": "/nonApac/newRequest-plilisting"
+        },
+        {
+          "name": "Invoice Header",
+          "url": "/nonApac/newRequest-invoiceheader"
+        },
+        {
+          "name": "Web Order PLI",
+          "url": "/nonApac/newRequest-/weborderpli"
+        },
+        {
+          "name": "Panama PLI",
+          "url": "/nonApac/newRequest-Panama_Pli"
+        }
+      ]
+    },
+    {
+      "name": "Scheduled Request",
+      "children": [
+        {
+          "name": "Summary for Albania by Calendar Period",
+          "url": "/nonApac/scheduleReq-SumAlbCP"   
+        },
+        {
+          "name": "Summary for Albania by Fiscal Period",
+          "url": "/nonApac/scheduleReq-SumAlbFP"
+        },
+        {
+            "name": "Summary for Iceland",
+            "url": "/nonApac/scheduleReq-SumIce"
+        },
+        {
+            "name": "Summary for Korea by Fiscal Period",
+            "url": "/nonApac/scheduleReq-SumKorFP"
+        },
+        {
+            "name": "Summary for Korea by Calendar Quarter",
+            "url": "/nonApac/scheduleReq-SumKorCP"
+        },
+        {
+            "name": "Summary for MOSS by Fiscal Period",
+            "url": "/nonApac/scheduleReq-SumMossFP"
+        },
+        {
+            "name": "Summary for MOSS by Calendar Quarter",
+            "url": "/nonApac/scheduleReq-SumMossCP"
+        },
+        {
+            "name": "Summary for Norway",
+            "url": "/nonApac/scheduleReq-SumNrwy"
+        },
+        {
+            "name": "Summary for Switzerland",
+            "url": "/nonApac/scheduleReq-SumSwitz"
+        },
+        {
+            "name": "Summary for South Africa",
+            "url": "/nonApac/scheduleReq-SumAfrica"
+        }
+      ]
+    }
+  ],
+  "singco": [
+    {
+      "name": "My Request",
+      "children": [
+        {
+          "name": "All",
+          "url": "/singco/myRequest-all"
+        },
+        {
+          "name": "Summary by Country & Tax",
+          "url": "/singco/myRequest-SummarySingCo"
+        },
+        {
+          "name": "SG GST Filing",
+          "url": "/singco/myRequest-sgGSTSingCo"
+        },
+        {
+          "name": "KR VAT Filing",
+          "url": "/singco/myRequest-krVATSingCo"
+        },
+        {
+          "name": "KR Platform Summary",
+          "url": "/singco/myRequest-krplatSingCo"
+        },
+        {
+          "name": "GL Summary",
+          "url": "/singco/myRequest-glsummSingCo"
+        },
+        {
+          "name": "PLI Listing",
+          "url": "/singco/myRequest-pliListingSingCo"
+        },
+        {
+          "name": "Invoice Header",
+          "url": "/singco/myRequest-invHeaderSingCo"
+        }
+      ]
+    },
+    {
+      "name": "New Request",
+      "children": [
+        {
+          "name": "Summary Report",
+          "url": "/singco/newRequest-SummarySingCo"
+        },
+        {
+          "name": "PLI Listing",
+          "url": "/singco/newRequest-pliListingSingCo"
+        },
+        {
+          "name": "Invoice Header",
+          "url": "/singco/newRequest-invHeaderSingCo"
+        }
+      ]
+    },
+    {
+      "name": "Scheduled Request",
+      "children": [
+        {
+          "name": "GL Summary",
+          "url": "/singco/schRequest-GL_Summary"
+        },
+        {
+          "name": "PLI Report",
+          "url": "/singco/schRequest-Panama_Pli"
+        }
+      ]
+    }
+  ], 
+   "sbspx4": [
+    {
+      "name": "My Request",
+      "children": [
+        {
+          "name": "All",
+          "url": "/sbspx4/myRequest-all"
+        },
+        {
+          "name": "Header Level Variance Report",
+          "url": "/sbspx4/myRequest-varianceRpt"
+        },
+        {
+          "name": "PLI Line Item Report - Internal",
+          "url": "/sbspx4/myRequest-pliInt"
+        },
+        {
+          "name": "Line Item Detail Report - Internal",
+          "url": "/sbspx4/myRequest-lineItemInt"
+        },
+        {
+          "name": "Summary Report",
+          "url": "/sbspx4/myRequest-SummRpt"
+        },
+        {
+          "name": "Miscellaneous Reports - Internal",
+          "url": "/sbspx4/myRequest-MiscInt"
+        },
+        {
+          "name": "Header Level Report",
+          "url": "/sbspx4/myRequest-HdrLevel"
+        },
+        {
+          "name": "PLI Line Item Report - External",
+          "url": "/sbspx4/myRequest-pliExt"
+        },
+        {
+          "name": "Line Item Detail Report - External",
+          "url": "/sbspx4/myRequest-lineItemExt"
+        },
+        {
+          "name": "Panama PLI",
+          "url": "/sbspx4/myRequest-panPli"
+        },
+        {
+          "name": "Miscellaneous Reports - External",
+          "url": "/sbspx4/myRequest-MiscExt"
+        }
+      ]
+    },
+    {
+      "name": "New Request",
+      "children": [
+        {
+          "name": "Header Level Variance Report",
+          "url": "/sbspx4/newRequest-varianceRpt"
+        },
+        {
+          "name": "PLI Line Item Report - Internal",
+          "url": "/sbspx4/newRequest-pliInt"
+        },
+        {
+          "name": "Line Item Detail Report - Internal",
+          "url": "/sbspx4/newRequest-lineItemInt"
+        },
+        {
+          "name": "Summary Report",
+          "url": "/sbspx4/newRequest-SummRpt"
+        },
+        {
+          "name": "Miscellaneous Reports - Internal",
+          "url": "/sbspx4/newRequest-MiscInt"
+        },
+        {
+          "name": "Header Level Report",
+          "url": "/sbspx4/newRequest-HdrLevel"
+        },
+        {
+          "name": "PLI Line Item Report - External",
+          "url": "/sbspx4/newRequest-pliExt"
+        },
+        {
+          "name": "Line Item Detail Report - External",
+          "url": "/sbspx4/newRequest-lineItemExt"
+        },
+        {
+          "name": "Panama PLI",
+          "url": "/sbspx4/newRequest-panPli"
+        },
+        {
+          "name": "Miscellaneous Reports - External",
+          "url": "/sbspx4/newRequest-MiscExt"
+        }
+      ]
+    },
+    {
+      "name": "Scheduled Request",
+      "children": [
+        {
+          "name": "Summary by TAID",
+          "url": "/sbspx4/schRequest-summbyTaid"
+        },
+        {
+          "name": "Summary of Tax Journal",
+          "url": "/sbspx4/schRequest-summTxJnl"
+        },
+        {
+            "name": "Summary for Lease Tax",
+            "url": "/sbspx4/schRequest-summLease"
+        },
+        {
+            "name": "Summary by State",
+            "url": "/sbspx4/schRequest-summState"
+        }
+      ]
+    }
+  ]
+}

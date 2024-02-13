@@ -1,0 +1,268 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+@import "./Styles/variables";
+// @import "./Styles/mixins";
+
+body {
+  margin: 0;
+  padding: 20px;
+  background-color: white;
+}
+* {
+  margin: 0;
+  font-size: 13px;
+  font-family: "Lucida Grande" !important;
+}
+p {
+  margin: 20px 0;
+}
+.dashboard {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+  // background-image: url("./images/bck.jpeg");
+}
+.body-component {
+  margin-top: 90px;
+  padding-left: 57px !important;
+}
+
+.mandatory-asterisk {
+  color: red; /* Set your desired color */
+  font-size: 13px; /* Set your desired font size */
+  margin-left: 4px; /* Adjust margin for spacing */
+}
+.error-mark {
+  font-size: 13px;
+  color: red;
+  margin-top: 10px;
+}
+
+.grid-spacing {
+  margin-top: 3px;
+}
+
+/* button {
+  border: 0;
+  padding: 8px;
+  border-radius: 4px;
+  color: white;
+  background: var(--primary);
+  cursor: pointer;
+} */
+
+/* navbar */
+/* header nav {
+  display: flex;
+  gap: 16px;
+  justify-content: end;
+  max-width: 1200px;
+  margin: 0 auto;
+} */
+//  header nav h1 {
+//   margin-right: auto;
+//   border-bottom: 3px solid var(--primary);
+// }
+// header nav a{
+//   text-decoration: none;
+//   padding: 6px;
+//   border-radius: 4px;
+// }
+//  nav a.active {
+//   background:  #68aeb6;
+// }
+// nav:hover {
+
+//   color: #68aeb6;
+
+// }
+
+/* page content */
+main {
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+.nav-style {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+.btn-dashboard {
+  width: 400px;
+  height: 54px;
+  text-align: center;
+  color: #6eb6ff;
+  background-color: #6eb6ff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* border: black; */
+  border-radius: 34px;
+  color: black;
+  text-decoration: none;
+}
+
+// .root-MuiAppBar-root{
+//   color :orange !important
+
+// }
+.grid-dashboard {
+  position: absolute;
+}
+
+.popover-layout {
+  float: right;
+}
+.navlink-custom {
+  text-decoration: none;
+}
+
+.navlink-custom-child {
+  font-size: 200px;
+}
+
+// .active{
+//   color : orange !important;
+//   font-weight: 800 !important;
+// }
+
+.label-custom {
+  color: #c4c4c4;
+  font-size: 13px;
+  display: flex;
+  padding-top: 6px;
+  padding-bottom: 15px;
+}
+.submit-button {
+  background-color: $Primary-color !important;
+  border-radius: 1px;
+}
+
+// .mandatory-sign {
+//   color: 'red' !important;
+//    font-size: '0.8em' !important;
+//    margin-right: '4px'!important;
+// }
+
+.title-page-heading {
+  color: rgba(0, 0, 0, 0.87);
+  font-weight: 700;
+  font-size: 30px !important;
+  padding-top: 4px;
+}
+
+.redirection-link {
+  color: $Primary-color;
+  font-weight: 700;
+  font-size: 15px !important;
+}
+
+.selected {
+  background-color: $Primary-color;
+  color: white;
+  border-radius: 5px;
+}
+
+.paper-adjust {
+  padding: 45px !important;
+  margin: 10px;
+  border: solid 2px #8080801f;
+  height: 70vh !important;
+}
+.button-group {
+  display: block;
+  text-align: center;
+  margin-bottom: 50px;
+  margin-top: 30px;
+  padding-left: 76px;
+  padding-right: 45px;
+}
+
+.filters-adjust-left {
+  padding-right: 35px;
+}
+
+.button-selected {
+  background-color: $Primary-color;
+  color: white;
+  &:hover {
+    background-color: $Primary-color; /* or whatever background color you want */
+  }
+  
+}
+
+.button-not-selected {
+  background-color: #edf6ff;
+  color: $Primary-color;
+  &:not([disabled]):not(:disabled):hover {
+    background-color: #edf6ff /* or whatever background color you want */
+  }
+}
+
+.button-custom-form {
+  width: 175px;
+  border-radius: 6px;
+  border: #e5dbdbb8 1px solid;
+  height: 50px;
+  padding: 10px;
+  border: 1px solid #8080804d;
+}
+.button-capsule-left {
+  height: 32px;
+  white-space: nowrap;
+  border-top-left-radius: 21px;
+  border-bottom-left-radius: 21px;
+  border: 1px solid #8080804d;
+  padding: 10px;
+
+}
+
+
+.button-capsule-right {
+  height: 32px;
+  white-space: nowrap;
+  border-top-right-radius: 21px;
+  border-bottom-right-radius: 21px;
+  border: 1px solid #8080804d;
+}
+
+.main-component-options-strip{
+  margin-left: 43%
+}
+
+
+// .options-selected {
+//   background-color: red !important;
+// }
+
+.MuiChip-labelMedium {
+  font-size: 13px !important;
+}
+
+.tabs-style {
+  width: 50% !important;
+}
+.custom-picker .Mui-selected {
+  background-color: $Primary-color;
+  color: white;
+}
+
+.cutom-tab-panel {
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+.typography-btn {
+  padding-top: 10px;
+  float: right;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 300;
+  border-bottom: 1px solid black;
+}
+.inline-title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

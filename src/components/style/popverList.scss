@@ -1,0 +1,75 @@
+
+@import "../../Styles/variables";
+
+
+/* customDropdown.scss */
+
+.date-picker-fiscal {
+   
+    &.MuiGrid-item{
+     padding-right: 12px !important;
+     padding-left: 12px !important;
+    }
+  }
+  @import "../../Styles/variables";
+
+.popover-listitem{
+   padding: 0px;
+   padding-bottom: 5px !important;
+}
+
+.popover-paper{
+    padding-left: 15px;
+    padding-right: 12px;
+    margin-bottom: 25px;
+    box-shadow: none;
+
+}
+
+
+.popover-class{
+
+    .MuiPaper-root{
+        background-color : $popover-background-color;
+        border: 1px solid #8080804d;
+    border-bottom: none;
+    }
+}
+
+.check-box{
+    padding-top: 2px !important;
+
+    padding-bottom: 2px !important;
+}
+
+.heading-style {
+    text-align: center;
+    margin-top: 9px;
+    margin-bottom: 7px;
+    font-weight: 600;
+    font-size: 16px
+}
+
+.list-item-text .MuiListItemText-primary {
+    font-size: 15px;
+}
+.list-item-style {
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.list-container {
+    max-height: 240px; /* Set your desired max-height for the list */
+    overflow-y: auto;
+}
+  
+  
+  .heading-container {
+    padding: 8px;
+  }
+  
+  .scrollable-list {
+    padding: 0;
+    margin: 0;
+  }
+  

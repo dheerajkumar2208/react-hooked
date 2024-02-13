@@ -1,0 +1,17 @@
+@import "../../Styles/variables";
+.custom-header{
+        color: white;
+        display: flex;
+        font-size: 13px;
+        flex-direction: column;
+}
+
+
+.top-section{
+    background-color:$Primary-color !important;
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100px;
+
+}

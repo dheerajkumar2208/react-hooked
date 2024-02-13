@@ -1,0 +1,30 @@
+
+@import "../../Styles/variables";
+.customdrpoptSelected{
+    color: $Primary-color;
+
+}
+
+.marginRenderoption{
+    margin-right: 5px
+}
+
+
+/* customDropdown.scss */
+
+.dropdownOptions {
+    list-style-type: none;
+    padding: 8px;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    &:hover {
+      background-color: inherit; /* or whatever background color you want */
+    }
+  
+   
+    &.MuiAutocomplete-option[data-focus="true"] {
+      background-color: inherit;
+    }
+  }
