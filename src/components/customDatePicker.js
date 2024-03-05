@@ -1,23 +1,15 @@
-/* eslint-disable */
 import React, {
   useState,
   useEffect,
   forwardRef,
   useImperativeHandle
 } from "react";
-
-import Autocomplete from "@mui/material/Autocomplete";
-import Box from "@mui/material/Box";
 import { useSelector, useDispatch } from "react-redux";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import TabPanel from "./tabPanel";
-import TextField from "@mui/material/TextField";
-import CustomDropdown from "./customDropdown";
 import { fetchValues } from "../Slices/dropdownSlice";
-import { Grid } from "@mui/material";
 import { constants } from "../constants/constant";
+import CustomDropdown from "./CustomDropdown";
 
+import "./style/customDatePicker.scss";
 
 const CustomDatePicker = forwardRef(
   ({ page, entity, setInitialValues }, ref) => {
@@ -45,14 +37,11 @@ const CustomDatePicker = forwardRef(
     const dispatch = useDispatch();
 
     const handleChange = (event, data) => {
-      console.log("this is the value ", SelectedDate);
-      console.log("this is the value ", stateDefaults);
-      debugger;
       setTabValue(data);
       setSelectedDate({
         fromSelectedDate: "",
         toSelectedDate: ""
-      })
+      });
     };
 
     const constituteComponentData = obj => {
@@ -118,7 +107,6 @@ const CustomDatePicker = forwardRef(
         ...SelectedDate,
         [name]: value
       });
-      // onChange(value, name);
     };
 
     const handleChangeInDatePicker = (valueObj, name) => {
@@ -156,7 +144,6 @@ const CustomDatePicker = forwardRef(
           }));
         }
       }
-      // onChange(valueObj, name);
     };
 
     const childFunction = obj => {
@@ -166,17 +153,13 @@ const CustomDatePicker = forwardRef(
         monthDefault: obj.Month
       });
 
-     setSelectedDate({
+      setSelectedDate({
         fromSelectedDate: "",
         toSelectedDate: ""
       });
-
     };
 
     const fetchLatestValues = () => {
-      debugger
-      console.log("stateDefaults", stateDefaults);
-
       let obj = {};
       if (tabValue === "fiscal") {
         obj = { ...stateDefaults };
@@ -184,12 +167,6 @@ const CustomDatePicker = forwardRef(
         obj = { ...SelectedDate };
       }
       return obj;
-
-      // setStateDefaults({
-      //   yearDefault: obj.Year,
-      //   quarterDefault: obj.Quarter,
-      //   monthDefault: obj.Month,
-      // });
     };
 
     useImperativeHandle(ref, () => ({
@@ -203,70 +180,56 @@ const CustomDatePicker = forwardRef(
       return (
         <>
           {childData.map((innerChild, index) => (
-            <Grid key={index} container spacing={2} alignItems="center">
-              <Grid item xs={4}>
-                <span className="label-custom">
-                  {innerChild.name} <span class="mandatory-asterisk">*</span> :
-                </span>
-              </Grid>
-              <Grid item xs={8}>
-                <CustomDropdown
-                  key={innerChild.name}
-                  name={innerChild.name}
-                  options={
-                    stateOptions[`${innerChild.name.toLowerCase()}Options`]
-                  }
-                  isMultiSelect={innerChild.multiSelect}
-                  searchEnabled={innerChild.search}
-                  onSelectionChange={valueObj =>
-                    handleChangeInDatePicker(valueObj, innerChild.name)
-                  }
-                  defaultValue={
-                    stateDefaults[`${innerChild.name.toLowerCase()}Default`]
-                  }
-                />
-              </Grid>
-            </Grid>
+            <div key={index} className="dropdown-container">
+              <span className="label-custom">
+                {innerChild.name} <span className="mandatory-asterisk">*</span> :
+              </span>
+              <CustomDropdown
+                key={innerChild.name}
+                name={innerChild.name}
+                options={
+                  stateOptions[`${innerChild.name.toLowerCase()}Options`]
+                }
+                isMultiSelect={innerChild.multiSelect}
+                searchEnabled={innerChild.search}
+                onSelectionChange={valueObj =>
+                  handleChangeInDatePicker(valueObj, innerChild.name)
+                }
+                defaultValue={
+                  stateDefaults[`${innerChild.name.toLowerCase()}Default`]
+                }
+              />
+            </div>
           ))}
         </>
       );
     };
 
     return (
-      <Box
-        border={1}
-        p={2}
-        sx={{
-          borderRadius: "8px",
-          borderColor: "primary.main",
-          backgroundColor: "#8080800a",
-          boxShadow: 4
-        }}
-      >
-        <Tabs
-          value={tabValue}
-          onChange={handleChange}
-          sx={{ marginBottom: "20px" }}
-        >
+      <div className="custom-date-picker">
+        <div className="tabs-container">
           {tabList.map(tab => (
-            <Tab
+            <button
               key={tab}
-              label={entity[tab].label}
-              value={entity[tab].value}
-            />
+              className={`tab-button ${tab === tabValue ? 'active' : ''}`}
+              onClick={() => handleChange(null, entity[tab].value)}
+            >
+              {entity[tab].label}
+            </button>
           ))}
-        </Tabs>
+        </div>
 
         {tabValue === "fiscal" && (
-          <TabPanel name="fiscal" value={tabValue}>
+          <div className="tab-content">
             {renderDropdown(tabValue)}
-          </TabPanel>
+          </div>
         )}
 
         {tabValue === "calendar" && (
-          <TabPanel name="calendar" value={tabValue}>
-            <TextField label="Year" variant="outlined" fullWidth />
-            <Autocomplete
+          <div className="tab-content">
+            <input type="text" placeholder="Year" />
+            <CustomDropdown
+              name="Month"
               options={[
                 "January",
                 "February",
@@ -281,55 +244,37 @@ const CustomDatePicker = forwardRef(
                 "November",
                 "December"
               ]}
-              renderInput={params => (
-                <TextField
-                  {...params}
-                  label="Month"
-                  variant="outlined"
-                  fullWidth
-                />
-              )}
+              isMultiSelect={false}
+              searchEnabled={false}
+              onSelectionChange={valueObj => handleChangeInDatePicker(valueObj, "Month")}
+              defaultValue={constants.NONE_SELECTED}
             />
-          </TabPanel>
+          </div>
         )}
 
         {tabValue === "date" && (
-          <TabPanel name="date" value={tabValue}>
-            {/* Date Range Form */}
+          <div className="tab-content">
             <span className="label-custom">
-              from <span class="mandatory-asterisk">*</span>:
+              from <span className="mandatory-asterisk">*</span>:
             </span>
-            <TextField
-              id="fromSelectedDate"
+            <input
               type="date"
-              variant="outlined"
-              fullWidth
               name="fromSelectedDate"
               value={SelectedDate.fromSelectedDate}
               onChange={ocChangeDate}
-              // InputProps={{
-              //   startAdornment: (
-              //     <InputAdornment position="start">
-              //       <Typography style={smallAsteriskStyle}>*</Typography>
-              //     </InputAdornment>
-              //   ),
-              // }}
             />
             <span className="label-custom">
-              from <span class="mandatory-asterisk">*</span>:
+              from <span className="mandatory-asterisk">*</span>:
             </span>
-            <TextField
-              id="toSelectedDate"
+            <input
               type="date"
-              variant="outlined"
-              fullWidth
               name="toSelectedDate"
               value={SelectedDate.toSelectedDate}
               onChange={ocChangeDate}
             />
-          </TabPanel>
+          </div>
         )}
-      </Box>
+      </div>
     );
   }
 );

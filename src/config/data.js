@@ -1,5 +1,5 @@
 const headers = {
-    wizard : [
+    apac : [
         'RequestID',
         'DateSubmitted',
         'UserName',
@@ -13,7 +13,7 @@ const headers = {
         'Status',
         'Download',    
       ],
-    nonWizard : [
+    nonApac : [
         'RequestID',
         'DateSubmitted',
         'UserName',
@@ -55,7 +55,7 @@ const headers = {
 }
 
 const dataTables = {
-    wizard : [
+    apac : [
         {
           RequestID: 130,
           DateSubmitted: '2023-09-22 09:57:41.0',
@@ -143,7 +143,7 @@ const dataTables = {
         {
           RequestID: 124,
           DateSubmitted: '2023-09-11 02:52:45.0',
-          UserName: 'Yuan Yuan Guoon',
+          UserName: 'ffffff',
           ReportType: 'Sunama Summary Report',
           Country: 'AU',
           FiscalYear: '2023',
@@ -253,7 +253,7 @@ const dataTables = {
           Download: 'Download',
         },
       ],
-      nonWizard : [
+      nonApac : [
         {
           RequestID: 33927,
           DateSubmitted: '09/28/23 15:32 A.M.',
@@ -810,7 +810,7 @@ const dataTables = {
 }
 
 const dropdownValues = { 
-  MC_WIZARD_TAX_RPT_GENERIC : {
+    MC_WIZARD_TAX_RPT_GENERIC : {
     "msg": "Query Executed!",
     "status": "SUCCESS",
     "data": {
@@ -879,7 +879,7 @@ const dropdownValues = {
     "requestId": "48ca8685-b2f6-461c-a069-f6919c6abf29",
     "gsfException": null
 },
-  MC_IFIN_VENDOR_IND :{
+  MC_WIZARD_TAX_RPT_GENERIC :{
     "msg": "Query Executed!",
     "status": "SUCCESS",
     "data": {
@@ -888,7 +888,7 @@ const dropdownValues = {
         "fetchSize": 2000,
         "appName": "eurovat_snowflake",
         "recordsProcessed": 3,
-        "serviceName": "MC_IFIN_VENDOR_IND",
+        "serviceName": "MC_WIZARD_TAX_RPT_GENERIC",
         "version": "ver1",
         "status": "success"
     },

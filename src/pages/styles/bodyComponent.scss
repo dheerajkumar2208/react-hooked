@@ -1,0 +1,14 @@
+.body-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 3.5%;
+  }
+  
+  .sidebar {
+    flex: 0 0 auto; /* Sidebar takes its natural width */
+  }
+  
+  .main-content {
+    flex-grow: 1; /* Main content expands to fill remaining space */
+  }
+  

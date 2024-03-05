@@ -1,20 +1,18 @@
 import React from "react";
-import Sidebar from "../components/sidebar";
-import { Grid } from "@mui/material";
-import MainComponent from "../components/mainComponent";
+import Sidebar from "../components/Sidebar";
+import MainComponent from "../components/MainComponent";
+import "./styles/bodyComponent.scss"
 
-const BodyComponent = props => {
+const BodyComponent = (props) => {
   return (
-      <Grid container spacing={20}>
-        <Grid item xs={12} md={2}>
-          <Sidebar />
-        </Grid>
-        <Grid item xs={12} md={10}>
-          <div className="body-component">
-            <MainComponent />
-          </div>
-        </Grid>
-      </Grid>
+    <div className="body-container">
+      <div className="sidebar">
+        <Sidebar />
+      </div>
+      <div className="main-content">
+        <MainComponent />
+      </div>
+    </div>
   );
 };
 

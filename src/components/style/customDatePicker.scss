@@ -1,14 +1,45 @@
-
 @import "../../Styles/variables";
+.custom-date-picker {
+  .tabs-container {
+    display: flex;
+    margin-bottom: 20px;
 
+    .tab-button {
+      padding: 10px 20px;
+      border: none;
+      background-color: $Secondry-color ;
+      cursor: pointer;
+      font-size: 16px;
+      color: #000;
+      outline: none;
+      transition: all 0.3s;
+      width: 50%;
 
-/* customDropdown.scss */
+      &:hover {
+        color: #333;
+      }
 
-.date-picker-fiscal {
-   
-    &.MuiGrid-item{
-     padding-right: 12px !important;
-     padding-left: 12px !important;
+      &.active {
+        border-bottom: 2px solid $Primary-color ;
+
+        color: #333;
+      }
     }
   }
-  
+
+  .tab-content {
+    padding: 20px;
+  }
+
+  .label-custom {
+    font-weight: bold;
+  }
+
+  .mandatory-asterisk {
+    color: red;
+  }
+
+  .dropdown-container {
+    margin-bottom: 10px;
+  }
+}

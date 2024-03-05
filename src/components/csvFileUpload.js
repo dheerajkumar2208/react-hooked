@@ -1,6 +1,6 @@
 import React from 'react';
-import { IconButton } from '@mui/material';
-import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+// import { IconButton } from '@mui/material';
+// import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
 const CsvFileUpload = ({ onFileUpload }) => {
   const handleFileChange = (event) => {
@@ -37,9 +37,9 @@ const CsvFileUpload = ({ onFileUpload }) => {
         style={{ display: 'none' }}
       />
       <label htmlFor="csv-file-input">
-        <IconButton component="span">
+        {/* <IconButton component="span">
           <CloudUploadIcon />
-        </IconButton>
+        </IconButton> */}
       </label>
     </span>
   );

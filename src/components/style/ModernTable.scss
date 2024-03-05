@@ -1,0 +1,50 @@
+/* Add your SCSS styles here */
+
+.popover-layout {
+  /* Styles for popover layout */
+}
+
+.table-container {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+table {
+  /* Styles for table */
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  /* Styles for table cells */
+  padding: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  max-width: 100px;
+  text-align: center;
+}
+
+th {
+  /* Styles for table header cells */
+  background-color: white;
+}
+
+tr:nth-child(even) {
+  /* Styles for even rows */
+  background-color: #f0f8fc;
+}
+
+tr:nth-child(odd) {
+  /* Styles for odd rows */
+  background-color: #ffffff;
+}
+
+.table-pagination {
+  /* Styles for pagination */
+}
+.textfield-style {
+      max-width: 100px;
+    border: 1px solid #bcbcbc;
+    height: 30px;
+    border-radius: 5px;
+}
+

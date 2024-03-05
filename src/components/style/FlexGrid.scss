@@ -1,0 +1,67 @@
+// FlexGrid.scss
+
+.flex-grid-container {
+    display: flex;
+  }
+  
+  .flex-grid-column {
+    flex-direction: column;
+  }
+  
+  .justify-flex-start {
+    justify-content: flex-start;
+  }
+  
+  .justify-center {
+    justify-content: center;
+  }
+  
+  .justify-flex-end {
+    justify-content: flex-end;
+  }
+  
+  .justify-space-between {
+    justify-content: space-between;
+  }
+  
+  .justify-space-around {
+    justify-content: space-around;
+  }
+  
+  .align-stretch {
+    align-items: stretch;
+  }
+  
+  .align-center {
+    align-items: center;
+  }
+  
+  .align-flex-start {
+    align-items: flex-start;
+  }
+  
+  .align-flex-end {
+    align-items: flex-end;
+  }
+  
+  .align-baseline {
+    align-items: baseline;
+  }
+  
+  .spacing-0 > * {
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  
+  .spacing-1 > * {
+    margin-right: 0.25rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .spacing-2 > * {
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Add more spacing classes as needed */
+  

@@ -1,6 +1,6 @@
 import ModernTable from "./ModernTable";
 import { dataTables } from '../config/data'
-import headersData from '../config/metadata/wizard.json';
+import headersData from '../config/metadata/apac.json';
 
 import {useParams } from 'react-router-dom';
 // import MyDatePicker from './DatePicker.js'

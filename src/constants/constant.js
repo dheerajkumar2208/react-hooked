@@ -19,8 +19,8 @@ export const TEXT_CONSTANT = {
         }
     }
     export const DASHBOARD_NAMES = {
-        wizard : 'WIZARD',
-        nonWizard : 'NON WIZARD',
+        apac : 'APAC',
+        nonApac : 'NON APAC',
         knight : 'SING CO',
         royale : 'SBS PX4'
     }
@@ -35,7 +35,7 @@ export const TEXT_CONSTANT = {
         // common: {
     
         // },
-        wizard : {
+        apac : {
             company_code: "IN_COMPANY_CD",
             country: "IN_COUNTRY_CD",
             Year: "IN_FISCAL_YEAR",

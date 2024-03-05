@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Grid, IconButton, Popover, TextField, Typography, Button, InputAdornment } from '@mui/material';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
-import SearchIcon from '@mui/icons-material/Search';
-import CloseIcon from '@mui/icons-material/Close';
+// import EditIcon from '@mui/icons-material/Edit';
+// import DeleteIcon from '@mui/icons-material/Delete';
+// import SearchIcon from '@mui/icons-material/Search';
+// import CloseIcon from '@mui/icons-material/Close';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faTrashAlt, faSearch, faTimes } from '@fortawesome/free-solid-svg-icons';
 import CsvFileUpload from './csvFileUpload';
 
 const CustomTextField = ({ mode, keyName, label, value, onSave }) => {
@@ -112,23 +114,35 @@ const CustomTextField = ({ mode, keyName, label, value, onSave }) => {
       <Grid item xs={3} sx={{ textAlign: 'right' }}>
         {mode === 'create' && (
           <>
-            <IconButton onClick={handleEditClick}>
+           <button className='icon-button' onClick={handleEditClick}>
+        <FontAwesomeIcon icon={faEdit} /> 
+        </button>
+            {/* <IconButton onClick={handleEditClick}>
               <EditIcon />
-            </IconButton>
+            </IconButton> */}
             <CsvFileUpload onFileUpload={handleFileUpload} />
           </>
         )}
         {mode === 'modify' && (
           <>
-            <IconButton onClick={handleEditClick}>
+            {/* <IconButton onClick={handleEditClick}>
               <EditIcon />
-            </IconButton>
-            <IconButton onClick={handleSearchClick}>
+            </IconButton> */}
+            <button className='icon-button' onClick={handleEditClick}>
+        <FontAwesomeIcon icon={faEdit} /> 
+        </button>
+        <button className='icon-button' onClick={openPophandleSearchClickover}>
+        <FontAwesomeIcon icon={faSearch} /> 
+        </button>
+        <button className='icon-button' onClick={handleDeleteClick}>
+        <FontAwesomeIcon icon={faTrashAlt} /> 
+        </button>
+            {/* <IconButton onClick={handleSearchClick}>
               <SearchIcon />
             </IconButton>
             <IconButton>
               <DeleteIcon onClick={handleDeleteClick}/>
-            </IconButton>
+            </IconButton> */}
           </>
         )}
       </Grid>
@@ -159,9 +173,13 @@ const CustomTextField = ({ mode, keyName, label, value, onSave }) => {
             </Typography>
           </Grid>
           <Grid item xs={1}>
-            <IconButton onClick={isSearchOpen ? handleSearchClose : handleEditClose}>
+            {/* <IconButton onClick={isSearchOpen ? handleSearchClose : handleEditClose}>
               <CloseIcon />
-            </IconButton>
+            </IconButton> */}
+            <button className='icon-button' onClick={isSearchOpen ? handleSearchClose : handleEditClose}>
+        <FontAwesomeIcon icon={faTimes} /> 
+        </button>
+
           </Grid>
           <Grid item xs={12}>
             {isSearchOpen && (
@@ -198,7 +216,7 @@ const CustomTextField = ({ mode, keyName, label, value, onSave }) => {
               fullWidth
               sx={{
                 border: 'none',
-              }}
+              }}x
             />
            
           

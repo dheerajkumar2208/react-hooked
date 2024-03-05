@@ -1,24 +1,25 @@
 import { useParams } from "react-router-dom";
 import { componentIdentifier } from "../constants/constant";
 import React, { useState }  from "react";
-import FormWrapper from "./formWrapper";
-import TableWrapper from "./tableWrapper";
-import Paper from "@mui/material/Paper";
+import FormWrapper from "./FormWrapper";
+import TableWrapper from "./TableWrapper";
+// import Paper from "@mui/material/Paper";
 import { Link } from "react-router-dom";
-import Button from "@mui/material/Button";
+// import Button from "@mui/material/Button";
+import Button from "./Button";
 import {ButtonGroup} from '../constants/constant.js';
 import { useDispatch } from 'react-redux';
 import { updateBaseUrl } from '../Slices/baseUrlSlice';
 
-const BodyComponent = () => {
+const MainComponent = () => {
   const dispatch = useDispatch();
   const { envButton: btnGroup } = ButtonGroup;
   let { entity, subEntity } = useParams();
   const [selectedButton, setSelectedButton] = useState(btnGroup.UAT.name);
   const pathPref = subEntity.split("-");
 
-  let redirectionUrl = entity === 'wizard' ? '/nonWizard' : '/wizard',
-      redirectionName = entity === 'wizard' ? 'Non-WIZARD' : 'WIZARD'
+  let redirectionUrl = entity === 'apac' ? '/nonApac' : '/apac',
+      redirectionName = entity === 'apac' ? 'Non-APAC' : 'APAC'
 
 
   const convertString = inputString => {
@@ -83,9 +84,10 @@ const BodyComponent = () => {
     return (
       <div className="main-page-layout">
         <h1 className="title-page-heading"> {pageTitle}</h1>
-        <Paper className="paper-adjust" elevation={2}>
-          <FormWrapper />
-        </Paper>
+        
+        <div className="paper">
+        <FormWrapper />
+    </div>
       </div>
     );
   } else {
@@ -93,4 +95,4 @@ const BodyComponent = () => {
   }
 };
 
-export default BodyComponent;
+export default MainComponent;

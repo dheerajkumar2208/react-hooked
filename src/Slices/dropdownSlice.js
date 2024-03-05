@@ -97,7 +97,7 @@ export const fetchValues = createAsyncThunk('dropdown/fetchValues', async (dataT
         try {
 
 
-          if (window.location.hostname === 'localhost.apple.com' || window.location.hostname === '127.0.0.1') {
+          if (window.location.hostname === 'localhost.app' || window.location.hostname === '127.0.0.1') {
             // Running on local machine
             console.log('Running on localhost');
 

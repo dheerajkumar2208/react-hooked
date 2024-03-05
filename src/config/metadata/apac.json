@@ -151,7 +151,7 @@
             "type": "datePicker",
             "value": "",
             "config": {
-              "for": "wizard",
+              "for": "apac",
               "entity": {
                 "fiscal": {
                   "label": "Fiscal",
@@ -228,7 +228,7 @@
             "type": "datePicker",
             "value": "",
             "config": {
-              "for": "wizard",
+              "for": "apac",
               "entity": {
                 "fiscal": {
                   "label": "Fiscal",
@@ -303,7 +303,7 @@
             "type": "datePicker",
             "value": "",
             "config": {
-              "for": "wizard",
+              "for": "apac",
               "entity": {
                 "fiscal": {
                   "label": "Fiscal",
@@ -378,7 +378,7 @@
             "type": "datePicker",
             "value": "",
             "config": {
-              "for": "wizard",
+              "for": "apac",
               "entity": {
                 "fiscal": {
                   "label": "Fiscal",
@@ -453,7 +453,7 @@
             "type": "datePicker",
             "value": "",
             "config": {
-              "for": "wizard",
+              "for": "apac",
               "entity": {
                 "fiscal": {
                   "label": "Fiscal",

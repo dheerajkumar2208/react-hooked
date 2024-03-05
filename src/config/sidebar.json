@@ -1,31 +1,31 @@
 {
-  "wizard": [
+  "apac": [
     {
       "name": "My Request",
       "children": [
         {
           "name": "All",
-          "url": "/wizard/myRequest-All"
+          "url": "/apac/myRequest-All"
         },
         {
           "name": "GL Summary Report",
-          "url": "/wizard/myRequest-GL_Summary"
+          "url": "/apac/myRequest-GL_Summary"
         },
         {
           "name": "Sunama PLI Report",
-          "url": "/wizard/myRequest-Panama_PLI"
+          "url": "/apac/myRequest-Panama_PLI"
         },
         {
           "name": "Sunama Summary Report",
-          "url": "/wizard/myRequest-Panama_Summary"
+          "url": "/apac/myRequest-Panama_Summary"
         },
         {
           "name": "PLI Bundle Report",
-          "url": "/wizard/myRequest-PLI_Bundle"
+          "url": "/apac/myRequest-PLI_Bundle"
         },
         {
           "name": "PLI Detail Report",
-          "url": "/wizard/myRequest-PLI_Detail"
+          "url": "/apac/myRequest-PLI_Detail"
         }
       ]
     },
@@ -34,23 +34,23 @@
       "children": [
         {
           "name": "GL Summary Report",
-          "url": "/wizard/newRequest-GL_Summary"
+          "url": "/apac/newRequest-GL_Summary"
         },
         {
           "name": "Sunama PLI Report",
-          "url": "/wizard/newRequest-Panama_PLI"
+          "url": "/apac/newRequest-Panama_PLI"
         },
         {
           "name": "Sunama Summary Report",
-          "url": "/wizard/newRequest-Panama_Summary"
+          "url": "/apac/newRequest-Panama_Summary"
         },
         {
           "name": "PLI Bundle Report",
-          "url": "/wizard/newRequest-PLI_Bundle"
+          "url": "/apac/newRequest-PLI_Bundle"
         },
         {
           "name": "PLI Detail Report",
-          "url": "/wizard/newRequest-PLI_Detail"
+          "url": "/apac/newRequest-PLI_Detail"
         }
       ]
     },
@@ -59,42 +59,42 @@
       "children": [
         {
           "name": "GL Summary Report",
-          "url": "/wizard/scheduleReq-GL_Summary"
+          "url": "/apac/scheduleReq-GL_Summary"
         },
         {
           "name": "PLI Report",
-          "url": "/wizard/scheduleReq-PLI"
+          "url": "/apac/scheduleReq-PLI"
         }
       ]
     }
   ],
-  "nonWizard": [
+  "nonApac": [
     {
       "name": "My Request",
       "children": [
         {
           "name": "All",
-          "url": "/nonWizard/myRequest-all"
+          "url": "/nonApac/myRequest-all"
         },
         {
           "name": "Summary by Country",
-          "url": "/nonWizard/myRequest-Summary"
+          "url": "/nonApac/myRequest-Summary"
         },
         {
           "name": "PLI Listing",
-          "url": "/nonWizard/myRequest-plilisting"
+          "url": "/nonApac/myRequest-plilisting"
         },
         {
           "name": "Invoice Header",
-          "url": "/nonWizard/myRequest-invoiceheader"
+          "url": "/nonApac/myRequest-invoiceheader"
         },
         {
           "name": "Web Order PLI",
-          "url": "/nonWizard/myRequest-weborder"
+          "url": "/nonApac/myRequest-weborder"
         },
         {
           "name": "Sunama PLI Report",
-          "url": "/nonWizard/myRequest-Panama_Pli"
+          "url": "/nonApac/myRequest-Panama_Pli"
         }
       ]
     },
@@ -103,23 +103,23 @@
       "children": [
         {
           "name": "Summary",
-          "url": "/nonWizard/newRequest-summary"
+          "url": "/nonApac/newRequest-summary"
         },
         {
           "name": "PLI Listing",
-          "url": "/nonWizard/newRequest-plilisting"
+          "url": "/nonApac/newRequest-plilisting"
         },
         {
           "name": "Invoice Header",
-          "url": "/nonWizard/newRequest-invoiceheader"
+          "url": "/nonApac/newRequest-invoiceheader"
         },
         {
           "name": "Web Order PLI",
-          "url": "/nonWizard/newRequest-/weborderpli"
+          "url": "/nonApac/newRequest-/weborderpli"
         },
         {
           "name": "Sunama PLI",
-          "url": "/nonWizard/newRequest-Panama_Pli"
+          "url": "/nonApac/newRequest-Panama_Pli"
         }
       ]
     },
@@ -128,43 +128,43 @@
       "children": [
         {
           "name": "Summary for Albania by Calendar Period",
-          "url": "/nonWizard/scheduleReq-SumAlbCP"   
+          "url": "/nonApac/scheduleReq-SumAlbCP"   
         },
         {
           "name": "Summary for Albania by Fiscal Period",
-          "url": "/nonWizard/scheduleReq-SumAlbFP"
+          "url": "/nonApac/scheduleReq-SumAlbFP"
         },
         {
             "name": "Summary for Iceland",
-            "url": "/nonWizard/scheduleReq-SumIce"
+            "url": "/nonApac/scheduleReq-SumIce"
         },
         {
             "name": "Summary for Korea by Fiscal Period",
-            "url": "/nonWizard/scheduleReq-SumKorFP"
+            "url": "/nonApac/scheduleReq-SumKorFP"
         },
         {
             "name": "Summary for Korea by Calendar Quarter",
-            "url": "/nonWizard/scheduleReq-SumKorCP"
+            "url": "/nonApac/scheduleReq-SumKorCP"
         },
         {
             "name": "Summary for MOSS by Fiscal Period",
-            "url": "/nonWizard/scheduleReq-SumMossFP"
+            "url": "/nonApac/scheduleReq-SumMossFP"
         },
         {
             "name": "Summary for MOSS by Calendar Quarter",
-            "url": "/nonWizard/scheduleReq-SumMossCP"
+            "url": "/nonApac/scheduleReq-SumMossCP"
         },
         {
             "name": "Summary for Norway",
-            "url": "/nonWizard/scheduleReq-SumNrwy"
+            "url": "/nonApac/scheduleReq-SumNrwy"
         },
         {
             "name": "Summary for Switzerland",
-            "url": "/nonWizard/scheduleReq-SumSwitz"
+            "url": "/nonApac/scheduleReq-SumSwitz"
         },
         {
             "name": "Summary for South Africa",
-            "url": "/nonWizard/scheduleReq-SumAfrica"
+            "url": "/nonApac/scheduleReq-SumAfrica"
         }
       ]
     }

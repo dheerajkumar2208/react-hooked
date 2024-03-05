@@ -1,75 +1,154 @@
 
-@import "../../Styles/variables";
+// @import "../../Styles/variables";
 
 
-/* customDropdown.scss */
+// /* customDropdown.scss */
 
-.date-picker-fiscal {
+// .date-picker-fiscal {
    
-    &.MuiGrid-item{
-     padding-right: 12px !important;
-     padding-left: 12px !important;
+//     &.MuiGrid-item{
+//      padding-right: 12px !important;
+//      padding-left: 12px !important;
+//     }
+//   }
+//   @import "../../Styles/variables";
+
+// .popover-listitem{
+//    padding: 0px;
+//    padding-bottom: 5px !important;
+// }
+
+// .popover-paper{
+//     padding-left: 15px;
+//     padding-right: 12px;
+//     margin-bottom: 25px;
+//     box-shadow: none;
+
+// }
+
+
+// .popover-class{
+
+//     .MuiPaper-root{
+//         background-color : $popover-background-color;
+//         border: 1px solid #8080804d;
+//     border-bottom: none;
+//     }
+// }
+
+// .check-box{
+//     padding-top: 2px !important;
+
+//     padding-bottom: 2px !important;
+// }
+
+// .heading-style {
+//     text-align: center;
+//     margin-top: 9px;
+//     margin-bottom: 7px;
+//     font-weight: 600;
+//     font-size: 16px
+// }
+
+// .list-item-text .MuiListItemText-primary {
+//     font-size: 15px;
+// }
+// .list-item-style {
+//     padding-bottom: 0px;
+//     padding-top: 0px;
+// }
+
+// .list-container {
+//     max-height: 240px; /* Set your desired max-height for the list */
+//     overflow-y: auto;
+// }
+  
+  
+//   .heading-container {
+//     padding: 8px;
+//   }
+  
+//   .scrollable-list {
+//     padding: 0;
+//     margin: 0;
+//   }
+  
+
+.popover {
+    position: fixed;
+    top: 1%;
+    left: 3%;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 999;
+  
+    &.open {
+      display: block;
+      overflow: hidden; // Disable scrolling when the popover is open
+      
     }
-  }
-  @import "../../Styles/variables";
-
-.popover-listitem{
-   padding: 0px;
-   padding-bottom: 5px !important;
-}
-
-.popover-paper{
-    padding-left: 15px;
-    padding-right: 12px;
-    margin-bottom: 25px;
-    box-shadow: none;
-
-}
-
-
-.popover-class{
-
-    .MuiPaper-root{
-        background-color : $popover-background-color;
-        border: 1px solid #8080804d;
-    border-bottom: none;
+  
+    .popover-content {
+        position: absolute;
+        background-color: #fff;
+        width: 171px;
+        overflow-y: auto;
+        padding: 17px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        top: 35%;
+        right: 0%;
+        transform: translate(-50%, -50%);
+        z-index: 1000;
+        max-width: calc(100% - 32px);
+        max-height: calc(100% - 32px);
+  
+      .heading-container {
+        text-align: center;
+        margin-bottom: 10px;
+  
+        .heading-style {
+          font-size: 18px;
+          margin: 0;
+        }
+      }
+  
+      .list-container {
+        .scrollable-list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+  
+          .list-item-style {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 8px 16px;
+  
+            .check-box {
+              margin-right: 10px;
+            }
+  
+            .list-item-text {
+              margin: 0;
+            }
+          }
+        }
+      }
     }
-}
-
-.check-box{
-    padding-top: 2px !important;
-
-    padding-bottom: 2px !important;
-}
-
-.heading-style {
-    text-align: center;
-    margin-top: 9px;
-    margin-bottom: 7px;
-    font-weight: 600;
-    font-size: 16px
-}
-
-.list-item-text .MuiListItemText-primary {
-    font-size: 15px;
-}
-.list-item-style {
-    padding-bottom: 0px;
-    padding-top: 0px;
-}
-
-.list-container {
-    max-height: 240px; /* Set your desired max-height for the list */
-    overflow-y: auto;
-}
   
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: none;
   
-  .heading-container {
-    padding: 8px;
-  }
-  
-  .scrollable-list {
-    padding: 0;
-    margin: 0;
+      &.show {
+        display: block;
+      }
+    }
   }
   

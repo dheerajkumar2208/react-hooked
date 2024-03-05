@@ -1,9 +1,7 @@
 import React from "react";
-import "./App.css";
 import CustomHeader from "./components/customHeader";
 import Dashboard from "./pages/Dashboard";
 import BodyComponent from "./pages/BodyComponent";
-// import { StyledEngineProvider } from "@mui/material/styles";
 
 import {
   createBrowserRouter,
@@ -25,9 +23,7 @@ const App = () => {
   );
 
   return (
-    // <StyledEngineProvider injectFirst>
       <RouterProvider router={routes} />
-    // </StyledEngineProvider>
   );
 };
 

@@ -1,30 +1,61 @@
 
 @import "../../Styles/variables";
-.customdrpoptSelected{
-    color: $Primary-color;
+// .customdrpoptSelected{
+//     color: $Primary-color;
 
-}
+// }
 
-.marginRenderoption{
-    margin-right: 5px
-}
+// .marginRenderoption{
+//     margin-right: 5px
+// }
 
 
-/* customDropdown.scss */
+// /* customDropdown.scss */
 
-.dropdownOptions {
-    list-style-type: none;
-    padding: 8px;
-    cursor: pointer;
-    user-select: none;
-    display: flex;
-    align-items: center;
-    &:hover {
-      background-color: inherit; /* or whatever background color you want */
-    }
+// .dropdownOptions {
+//     list-style-type: none;
+//     padding: 8px;
+//     cursor: pointer;
+//     user-select: none;
+//     display: flex;
+//     align-items: center;
+//     &:hover {
+//       background-color: inherit; /* or whatever background color you want */
+//     }
   
    
-    &.MuiAutocomplete-option[data-focus="true"] {
-      background-color: inherit;
-    }
-  }
+//     &.MuiAutocomplete-option[data-focus="true"] {
+//       background-color: inherit;
+//     }
+//   }
+
+.autocomplete {
+  width: 300px; // Adjust width as needed
+}
+
+.options {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.options li {
+  cursor: pointer;
+  padding: 5px;
+}
+
+.options li.selected {
+  background-color: lightblue;
+}
+
+.checkbox {
+  margin-right: 5px;
+}
+
+.checkbox.selected {
+  color: blue;
+}
+
+.radio {
+  margin-right: 5px;
+}
