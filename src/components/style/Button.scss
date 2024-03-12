@@ -1,0 +1,69 @@
+// CustomButton.scss
+@import "../../Styles/variables";
+
+$Text-color :  rgb(176 171 176);
+.custom-button {
+  width: 165px;
+  border: 2px solid $border-color;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 10px 20px; /* Adjust padding as needed */
+    transition: background-color 0.3s ease;
+    font-size: 1rem; /* Default font size */
+  
+    &.large {
+      font-size: 1.25rem; /* Large font size */
+    }
+  
+    &.primary {
+      background-color: $Primary-color; /* Background color for contained variant */
+      color: #fff; /* Text color for contained variant */
+    }
+  
+    &.outlined {
+      background-color: transparent;
+      border: 1px solid $Primary-color; /* Border color for outlined variant */
+      color: $Primary-color; /* Text color for outlined variant */
+    }
+  
+    &.button-selected {
+      background-color: $Primary-color; /* Background color for selected state */
+      color: #fff; /* Text color for selected state */
+    }
+  
+    &.button-capsule-left {
+      height: 32px;
+      border-top-left-radius: 21px;
+      border-bottom-left-radius: 21px;
+      border: 1.5px solid $border-color;
+      line-height: 1px;
+      width: 75px;
+    }
+
+    &.button-capsule-right {
+      height: 32px;
+      border-top-right-radius: 21px;
+      border-bottom-right-radius: 21px;
+      border: 1.5px solid $border-color;
+      line-height: 1px;
+      width: 75px;
+    }
+    
+  
+
+
+
+    &.button-not-selected {
+      background-color: $Secondry-color; /* Background color for not selected state */
+      color: $Text-color; /* Text color for not selected state */
+    }
+  
+    // &:hover {
+    //   background-color: #1565c0; /* Background color on hover */
+    // }
+  
+    &:focus {
+      outline: none; /* Remove default focus outline */
+    }
+  }
+   

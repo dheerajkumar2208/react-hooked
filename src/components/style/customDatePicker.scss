@@ -1,5 +1,9 @@
 @import "../../Styles/variables";
+
+$tab-selection-color: #eff6fe;
+
 .custom-date-picker {
+  border: 1.5px solid $border-color;
   .tabs-container {
     display: flex;
     margin-bottom: 20px;
@@ -7,6 +11,7 @@
     .tab-button {
       padding: 10px 20px;
       border: none;
+       border-bottom: 2px solid $border-color ;
       background-color: $Secondry-color ;
       cursor: pointer;
       font-size: 16px;
@@ -14,21 +19,21 @@
       outline: none;
       transition: all 0.3s;
       width: 50%;
-
-      &:hover {
-        color: #333;
-      }
+      border-right: 1.5px solid $border-color;
+      
 
       &.active {
-        border-bottom: 2px solid $Primary-color ;
 
-        color: #333;
+        background-color: $tab-selection-color;
+        border-bottom: 2px solid $Primary-color ;
       }
     }
   }
 
   .tab-content {
     padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
   }
 
   .label-custom {
@@ -41,5 +46,8 @@
 
   .dropdown-container {
     margin-bottom: 10px;
+    flex: 4;
+    padding: 10px;
+
   }
 }

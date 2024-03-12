@@ -85,32 +85,47 @@ const ModernTable = ({ data, allHeaders, columnConfig }) => {
     const config = columnConfig[header];
     if (config && config.type === 'dropdown' && config.dropdownOptions) {
       return (
-        <th key={index}>
-          <CustomDropdown
+        <th className={index === 0 ? 'right-line-sep' : ''} key={index} >
+           <CustomDropdown
             defaultOptionText="All"
             key={index}
             name={header}
             options={config.dropdownOptions}
             isMultiSelect={false}
             onSelectionChange={handleFilterChange}
-            defaultValue={ filters[header] ? {value : filters[header], label : filters[header] }: "" }
-          />
+            defaultValue={ filters[header] ? {value : filters[header], label : filters[header] }: {} }
+          /> 
+
+{/* <CustomDropdown
+  placeholder="Select an option:"
+  options={[
+    { label: 'Option 1', value: 'option1' },
+    { label: 'Option 2', value: 'option2' },
+    { label: 'Option 3', value: 'option3' },
+  ]}
+  defaultValue={['option1']}
+  onSelectionChange={(selectedOptions) => {
+    console.log('Selected options:', selectedOptions);
+  }}
+  isMultiSelect={true}
+  defaultOptionText="Select an option"
+  name="dropdown"
+/> */}
         </th>
       );
     } else if(config && config.type === 'textfield') {
-      let sx = {}
-      if(header === 'RequestId'){
-        sx = {
-          width:"30px"
-        }
-      }
+      // let sx = {}
+      // if(header === 'RequestId'){
+      //   sx = {
+      //     width:"30px"
+      //   }
+      // }
       return (
-        <th key={index}>
+        <th className={index === 0 ? 'right-line-sep' : ''} key={index}>
           <input
           className='textfield-style'
             value={filters[header] || ''}
             size="small"
-            style={{...sx}}
             onChange={(e) => handleFilterChange({
               value : e.target.value
             },header)}
@@ -124,11 +139,26 @@ const ModernTable = ({ data, allHeaders, columnConfig }) => {
     }
   };
 
-  const filteredData = data.filter((item) => 
-    Object.entries(filters).every(([header, value]) =>
-      item[header].toString().toLowerCase().includes(value.toLowerCase())
-    )
-  );
+
+  console.log('this is data', data)
+
+  // const filteredData = data.filter((item) => 
+  //   Object.entries(filters).every(([header, value]) =>{
+  //     console.log('this is item', item[header]);
+  //     debugger
+  //     item[header].toString().toLowerCase().includes(value.toLowerCase())
+  //   }
+    
+  //   )
+  // );
+
+  const filteredData = data.filter((item) =>
+  Object.entries(filters).every(([header, value]) => {
+    console.log('this is item', item[header]);
+    debugger;
+    return item[header].toString().toLowerCase().includes(value.toLowerCase());
+  })
+);
 
   const visibleHeaders = allHeaders.filter(header => !selectedHeaders.some(selected => selected.dataKey === header.dataKey));
 
@@ -153,12 +183,12 @@ const ModernTable = ({ data, allHeaders, columnConfig }) => {
       <div className="table-container">
         <table>
           <thead>
-            <tr>
+            <tr className='header-row'>
               {visibleHeaders.map((header, index) => (
-                <th key={index}>{header.label}</th>
+                <th  className={index === 0 ? 'right-line-sep' : ''} key={index}>{header.label}</th>
               ))}
             </tr>
-            <tr>
+            <tr className='filter-row'>
               {visibleHeaders.map((header, index) => (
                 renderFilter(header.dataKey, index)
               ))}
@@ -170,7 +200,7 @@ const ModernTable = ({ data, allHeaders, columnConfig }) => {
               .map((row, rowIndex) => (
                 <tr key={rowIndex}>
                   {visibleHeaders.map((header, colIndex) => (
-                    <td key={colIndex}>{row[header.dataKey]}</td>
+                    <td className={colIndex === 0 ? 'right-line-sep' : ''}key={colIndex}>{row[header.dataKey]}</td>
                   ))}
                 </tr>
               ))}

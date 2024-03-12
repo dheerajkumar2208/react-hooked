@@ -1,27 +1,26 @@
 /* eslint-disable */
 import React, { useState, useEffect, useRef } from "react";
+// import { Grid } from "@mui/material";
 import Button from "./Button";
+
+// import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useSelector, useDispatch } from "react-redux";
-import { fetchValues, submitData, submitReport } from "../Slices/dropdownSlice";
+import { fetchValues, submitData, submitReport} from "../Slices/dropdownSlice";
 import loadConfig from "../utils/configLoader";
 import UiElm from "../config/metadata/UiElm";
 import CustomDatePicker from "./CustomDatePicker";
-import CustomTextField from "./customtextField";
+//  import CustomTextField from "./customtextField";
 import CustomDropdown from "./CustomDropdown";
 import { transformData } from "../utils/utilFunc";
 import { useParams } from "react-router-dom";
-import {
-  submitMapping,
-  TEXT_CONSTANT,
-  QUERY_NAME,
-} from "../constants/constant";
+import { submitMapping , TEXT_CONSTANT, QUERY_NAME} from "../constants/constant";
 
 import "./style/formWrapper.scss";
 
 export default function FormWrapper() {
   // this is for redux state selection we are selecting dropdown values
   const [selectedButton, setSelectedButton] = useState("FILTERS");
-  const dropdownValue = useSelector((state) => state.dropdown);
+  const dropdownValue = useSelector(state => state.dropdown);
   const [valueObj, setValueObj] = useState({});
   const [editObj, setEditObj] = useState({});
 
@@ -29,15 +28,21 @@ export default function FormWrapper() {
 
   const [isValid, setIsValid] = useState(true);
   const [optionsObj, setOptionsObj] = useState({});
+  // const [query, setQuery] = useState([]);
   const [initialObj, setInitialObj] = useState({});
   const [uploadButton, setUploadBtn] = useState(false);
-  let { entity, subEntity } = useParams();
+
+  // const isInitializedRef = useRef(false);
+
+  // ---------------------code for dynamic module loading needs to be completed----------------------------------------
+  let { entity, subEntity } = useParams(); // Get the route parameter from useParams
   const pathPref = subEntity.split("-");
   const [layout, setConfig] = useState(null);
 
   const childRef = useRef();
 
-  const fetchApiData = (layout) => {
+
+  const fetchApiData = layout => {
     try {
       let allElm = layout.config;
       let uploadBtn = false;
@@ -46,7 +51,7 @@ export default function FormWrapper() {
         let obj = {},
           // optionsObj = {},
           queryItem = [];
-        allElm.forEach((item) => {
+        allElm.forEach(item => {
           // doing work fot the options optimisation
           if (item.type === "textarea") {
             uploadBtn = true;
@@ -57,6 +62,32 @@ export default function FormWrapper() {
           if (letDrpConfig) {
             queryItem.push(letDrpConfig.queryName);
 
+            // let drpData = dropdownValue[letDrpConfig.queryName];
+            // if (drpData && drpData.length > 0) {
+            //   let opt = drpData
+            //     .filter(item => {
+            //       if (letDrpConfig.REF_TYPE_CD !== "") {
+            //         return item.REF_TYPE_CD === letDrpConfig.REF_TYPE_CD;
+            //       } else {
+            //         return true;
+            //       }
+            //     })
+            //     .map(item => {
+            //       if (nameOfDrp === "country") {
+            //         return {
+            //           value: item[letDrpConfig.label],
+            //           label: item[letDrpConfig.value],
+            //           active: false
+            //         };
+            //       } else {
+            //         return {
+            //           value: item[letDrpConfig.label],
+            //           label: item[letDrpConfig.value]
+            //         };
+            //       }
+            //     });
+            //   optionsObj[nameOfDrp] = opt;
+            // }
           }
 
           // obj[nameOfDrp] = item.isMultiSelect ? [] : "";
@@ -77,16 +108,16 @@ export default function FormWrapper() {
     }
   };
 
-  const createValuAandOptObj = (layout) => {
+  const createValuAandOptObj = layout => {
     try {
       let allElm = layout.config;
       let uploadBtn = false;
 
       if (allElm && allElm.length > 0) {
         let obj = {},
-          optionsObj = {};
-        // queryItem = [];
-        allElm.forEach((item) => {
+          optionsObj = {}
+          // queryItem = [];
+        allElm.forEach(item => {
           // doing work fot the options optimisation
           if (item.type === "textarea") {
             uploadBtn = true;
@@ -100,24 +131,24 @@ export default function FormWrapper() {
             let drpData = dropdownValue[letDrpConfig.queryName];
             if (drpData && drpData.length > 0) {
               let opt = drpData
-                .filter((item) => {
+                .filter(item => {
                   if (letDrpConfig.REF_TYPE_CD !== "") {
                     return item.REF_TYPE_CD === letDrpConfig.REF_TYPE_CD;
                   } else {
                     return true;
                   }
                 })
-                .map((item) => {
+                .map(item => {
                   if (nameOfDrp === "country") {
                     return {
                       value: item[letDrpConfig.label],
                       label: item[letDrpConfig.value],
-                      active: false,
+                      active: false
                     };
                   } else {
                     return {
                       value: item[letDrpConfig.label],
-                      label: item[letDrpConfig.value],
+                      label: item[letDrpConfig.value]
                     };
                   }
                 });
@@ -130,9 +161,9 @@ export default function FormWrapper() {
         // console.log("this is obj", uploadBtn);
         setUploadBtn(uploadBtn);
         // setQuery(queryItem);
-        setValueObj((prevObj) => ({ ...prevObj, ...obj }));
-        setInitialObj((prevObj) => ({ ...prevObj, ...obj }));
-        setOptionsObj((prevObj) => ({ ...prevObj, ...optionsObj }));
+        setValueObj(prevObj => ({ ...prevObj, ...obj }));
+        setInitialObj(prevObj => ({ ...prevObj, ...obj }));
+        setOptionsObj(prevObj => ({ ...prevObj, ...optionsObj }));
       }
     } catch (e) {
       console.log("this is the error", e);
@@ -144,13 +175,19 @@ export default function FormWrapper() {
     const subsection = pathPref[1];
     // if (!isInitializedRef.current) {
     loadConfig(entity)
-      .then((configData) => {
+      .then(configData => {
         setConfig(configData.default[section].pages[subsection]);
         fetchApiData(configData.default[section].pages[subsection]);
       })
-      .catch((error) => {});
+      .catch(error => {});
     // }
   }, [entity, subEntity]); // The empty dependency array means this effect runs once, similar to componentDidMount
+
+
+
+
+
+
 
   const dispatch = useDispatch();
   // useEffect(() => {
@@ -167,15 +204,10 @@ export default function FormWrapper() {
       "coming in dropdown values after adding the data",
       dropdownValue
     );
-    if (
-      dropdownValue !== null &&
-      dropdownValue !== undefined &&
-      Object.keys(dropdownValue).length !== 0 &&
-      layout !== null &&
-      layout !== undefined
-    ) {
+    if(dropdownValue !== null && dropdownValue !== undefined && Object.keys(dropdownValue).length !== 0 && layout !== null && layout !== undefined){
       createValuAandOptObj(layout);
     }
+   
   }, [dropdownValue, layout]);
 
   const handleReset = () => {
@@ -185,7 +217,7 @@ export default function FormWrapper() {
   };
   const validateSubmitData = (valueObj, layouttemp) => {
     let isValid = true;
-    layouttemp.forEach((item) => {
+    layouttemp.forEach(item => {
       if (item.type === "dropdown" && isValid) {
         isValid = valueObj[item.name] && valueObj[item.name] !== "";
       }
@@ -204,31 +236,29 @@ export default function FormWrapper() {
 
     let finalData = {
       ...valueObj,
-      ...data,
+      ...data
     };
 
     let isValid = validateSubmitData(finalData, layout.config);
     setIsValid(isValid);
     let transformedData = transformData(finalData, submitMapping[entity]);
 
-    dispatch(
-      submitReport({
-        dataToSubmit: transformedData,
-        appName: entity,
-      })
-    );
+    dispatch(submitReport({
+      dataToSubmit : transformedData,
+       appName: entity
+    }));
     // let initObj  =   initialObj
     // setValueObj(initObj)
   };
 
-  const setInitValuesDatePicker = (obj) => {
+  const setInitValuesDatePicker = obj => {
     setInitialObj({
       ...initialObj,
-      ...obj,
+      ...obj
     });
   };
 
-  const fetchOptions = (current) => {
+  const fetchOptions = current => {
     if (optionsObj && Object.keys(optionsObj).length > 0) {
       return optionsObj[current.name];
     }
@@ -237,7 +267,7 @@ export default function FormWrapper() {
     if (name === "company_code" && entity === "apac") {
       // if(value.value === '0082'){
       let opOb = optionsObj;
-      opOb.country.forEach((elm) => {
+      opOb.country.forEach(elm => {
         if (value.value === "0082") {
           if (elm.label === "JP") {
             elm.active = false;
@@ -256,30 +286,30 @@ export default function FormWrapper() {
       });
 
       // }
-      setOptionsObj((prevObj) => {
+      setOptionsObj(prevObj => {
         return { ...prevObj, [name]: opOb[name] };
       });
     }
 
-    setValueObj((prevObj) => {
+    setValueObj(prevObj => {
       return { ...prevObj, [name]: value };
     });
   };
 
-  const handleButtonClick = (buttonName) => {
+  const handleButtonClick = buttonName => {
     setSelectedButton(buttonName);
   };
 
   const handletextFieldChange = (value, name) => {
     setValueObj({
       ...valueObj,
-      [name]: value,
+      [name]: value
     });
   };
 
   const handleSaveRequest = (value, name) => {
     if (!value) {
-      setNameArray(nameArray.filter((item) => item !== name));
+      setNameArray(nameArray.filter(item => item !== name));
     } else {
       if (!nameArray.includes(name)) {
         setNameArray([...nameArray, name]);
@@ -287,12 +317,12 @@ export default function FormWrapper() {
     }
     setEditObj({
       ...editObj,
-      [name]: value,
+      [name]: value
     });
 
     setValueObj({
       ...valueObj,
-      [name]: "",
+      [name]: ""
     });
   };
 
@@ -303,10 +333,11 @@ export default function FormWrapper() {
 
   return (
     <div>
+
       <div className="button-group">
         <div className="flex-6">
           <Button
-            variant="primary"
+            variant="contained"
             className={
               selectedButton === "FILTERS"
                 ? "button-selected button-custom-form float-right"
@@ -317,9 +348,10 @@ export default function FormWrapper() {
           >
             FILTERS
           </Button>
+         
         </div>
         <div className="flex-6">
-          <Button
+        <Button
             variant="contained"
             className={
               selectedButton === "UPLOAD FILES"
@@ -332,51 +364,70 @@ export default function FormWrapper() {
           >
             UPLOAD FILES
           </Button>
-
+         
           <h6 className="typography-btn" onClick={handleReset}>
             Reset All
           </h6>
         </div>
       </div>
+      
 
-      <div>
+
+
+
+
+
+
+
+
+
+
+
+
+      <div >
         {selectedButton === "UPLOAD FILES" && (
-          <div className="flex">
-            <div className="flex-6 flex-padding-40  heading-uploadfile">
-              <h6> {`${TEXT_CONSTANT.ADD_UPLOAD_FILES}`}</h6>
+          <>
+            <div>
+              <div className="typography-btn heading-uploadfile">
+                <h6> {`${TEXT_CONSTANT.ADD_UPLOAD_FILES}`}</h6>
+              </div>
             </div>
-            <div
-              className={
-                nameArray.length > 0
-                  ? "heading-uploadfile flex-6 flex-padding-40"
-                  : "heading-uploadfile right-section flex-6 flex-padding-40"
-              }
-            >
-              <h6> {`${TEXT_CONSTANT.FILES_ADDED} (${nameArray.length})`}</h6>
+            <div>
+              <div
+                className={
+                  nameArray.length > 0
+                    ? "typography-btn heading-uploadfile"
+                    : " typography-btn heading-uploadfile right-section"
+                }
+              >
+                <h6> {`${TEXT_CONSTANT.FILES_ADDED} (${nameArray.length})`}</h6>
+              </div>
             </div>
-          </div>
+          </>
         )}
       </div>
 
       <div className="flex">
-        <div className="flex-6 flex-padding-40">
+      <div className="flex-6 flex-padding-40">
           {layout.config.map((item, index) => (
             <>
               {item.type === "dropdown" && selectedButton === "FILTERS" ? (
                 <div className="flex">
-                  <span className="label-custom flex-3 flex-padding-10">
-                    {`${item.label}`}{" "}
-                    <>
-                      {item.required ? (
-                        <span class="mandatory-asterisk">*</span>
-                      ) : (
-                        ""
-                      )}
-                    </>
-                    {`${" : "}`}
-                  </span>
+                 
+                    <span className="label-custom flex-3 flex-padding-10">
+                      {`${item.label}`}{" "}
+                      <>
+                        {item.required ? (
+                          <span class="mandatory-asterisk">*</span>
+                        ) : (
+                          ""
+                        )}
+                      </>
+                      {`${" : "}`}
+                    </span>
 
-                  <span className="flex-9 flex-padding-10">
+                    <span className="flex-9 flex-padding-10">
+
                     <CustomDropdown
                       key={index}
                       name={item.name}
@@ -385,30 +436,37 @@ export default function FormWrapper() {
                       // searchEnabled={false}
                       onSelectionChange={setSelectedData}
                       defaultValue={
-                        valueObj[item.name] ? valueObj[item.name] : {}
+                        valueObj[item.name] ? valueObj[item.name] : ""
                       }
                     />
-                  </span>
+                    </span>
+
                 </div>
               ) : item.type === "textarea" &&
                 selectedButton === "UPLOAD FILES" ? (
                 <>
-                  <div className="flex-6">
-                    <CustomTextField
-                      mode="create"
-                      value={valueObj[item.name]}
-                      keyName={`${item.name}`}
-                      label={`${item.label}`}
-                      onSave={handleSaveRequest}
-                    />
-                  </div>
+                    <div  className="flex-6" >
+                       {/* <CustomTextField
+                        mode="create"
+                        value={valueObj[item.name]}
+                        keyName={`${item.name}`}
+                        label={`${item.label}`}
+                        onSave={handleSaveRequest}
+                      />  */}
+                    </div>
+                    {/* dcdscsdscdscdscdscd */}
+
+{/* 
+                    <div className="hello">
+dcdcdc
+                          </div> */}
                 </>
               ) : (
                 <> </>
               )}
             </>
           ))}
-        </div>
+          </div>
 
         <div className="divider" />
 
@@ -417,31 +475,37 @@ export default function FormWrapper() {
             <>
               {item.type === "datePicker" && selectedButton === "FILTERS" ? (
                 <div>
-                  {
-                    <CustomDatePicker
-                      page={item.config.for}
-                      entity={item.config.entity}
-                      // onChange={handlePickerChange}
-                      setInitialValues={setInitValuesDatePicker}
-                      ref={childRef}
-                    ></CustomDatePicker>
-                  }
+                 
+                    {
+                      <CustomDatePicker
+                        page={item.config.for}
+                        entity={item.config.entity}
+                        // onChange={handlePickerChange}
+                        setInitialValues={setInitValuesDatePicker}
+                        ref={childRef}
+                      ></CustomDatePicker>
+                    }
                 </div>
               ) : item.type === "textarea" &&
                 selectedButton === "UPLOAD FILES" ? (
                 <>
-                  {editObj[item.name] !== "" &&
-                    editObj[item.name] !== undefined && (
-                      <>
-                        <CustomTextField
-                          mode="modify"
-                          value={editObj[item.name]}
-                          keyName={`${item.name}`}
-                          label={`${item.label}`}
-                          onSave={handleSaveRequest}
-                        />
-                      </>
-                    )}
+                    {editObj[item.name] !== "" &&
+                      editObj[item.name] !== undefined && (
+                        <>
+                          {/* Render date picker component here */}
+                           {/* <CustomTextField
+                            mode="modify"
+                            value={editObj[item.name]}
+                            keyName={`${item.name}`}
+                            label={`${item.label}`}
+                            onSave={handleSaveRequest}
+                          />  */}
+
+                          <div className="hello">
+dcdcdc
+                          </div>
+                        </>
+                      )}
                 </>
               ) : (
                 <> </>
@@ -450,6 +514,8 @@ export default function FormWrapper() {
           ))}
         </div>
       </div>
+
+   
     </div>
   );
 }

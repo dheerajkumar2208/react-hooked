@@ -1,7 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { List, ListItem, ListItemText, Collapse, Drawer } from '@mui/material';
-import ExpandLess from '@mui/icons-material/ExpandLess';
-import ExpandMore from '@mui/icons-material/ExpandMore';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import menuItems from '../config/sidebar.json';
 import './style/sidebar.scss';
@@ -10,72 +7,67 @@ const findCurrentStateForSidebar = (pathname, targetString) => {
   const normalizedPathname = pathname.toLowerCase().replace(/\s/g, '');
   const normalizedTargetString = targetString.toLowerCase().replace(/\s/g, '');
   const result = normalizedPathname.includes(normalizedTargetString);
-
-  return result
-}
+  return result;
+};
 
 const SidebarItem = ({ item, depth = 0, selectedIndex, setSelectedUrl, handleClick }) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [open, setOpen] = useState(false);
 
+  useEffect(() => {
+    setOpen(findCurrentStateForSidebar(location.pathname, item.name));
+  }, [location.pathname, item.name]);
 
-  let currentOpenState = findCurrentStateForSidebar(location.pathname, item.name)
-  
-  const [open, setOpen] = useState(currentOpenState);
-
-  const handleItemClick = () => {
+  const handleParentItemClick = () => {
     if (item.url) {
       navigate(item.url);
       setSelectedUrl(item.url);
     } else {
-      setOpen(!open);
+      setOpen(!open); // Toggle the open state
       if (handleClick) {
         handleClick(item.name);
       }
     }
   };
 
+  const handleNestedItemClick = (url) => {
+    navigate(url);
+    setSelectedUrl(url);
+  };
+
   return (
-    <div >
-      <ListItem
-        button
-        onClick={handleItemClick}
-        className={`${
-          selectedIndex === item.url ? 'selected ' : ''
-        }sidebar-child-listitem ${depth > 0 ? 'nested-list-item' : ''}`}
+    <div>
+      <div
+        onClick={handleParentItemClick}
+        className={`sidebar-item ${selectedIndex === item.url ? 'selected' : ''} ${depth > 0 ? 'nested' : ''}`}
       >
-        {item.children && (open ? <ExpandLess /> : <ExpandMore />)}
-        <ListItemText primary={item.name} />
-      </ListItem>
-      {item.children && (
-        <Collapse in={open} timeout="auto" unmountOnExit>
-          <List>
-            {item.children.map((subOption) => (
-              <SidebarItem
-                key={subOption.name}
-                item={subOption}
-                depth={depth + 1}
-                handleClick={handleClick}
-                selectedIndex={selectedIndex}
-                setSelectedUrl={setSelectedUrl}
-              />
-            ))}
-          </List>
-        </Collapse>
+        {item.children && (open ? '-' : '+')}
+        <span>{item.name}</span>
+      </div>
+      {item.children && open && (
+        <div className="sidebar-item-children">
+          {item.children.map((subOption) => (
+            <div key={subOption.name} onClick={() => handleNestedItemClick(subOption.url)}>
+              <div className={`sidebar-item ${selectedIndex === subOption.url ? 'selected' : ''} nested`}>
+                <span>{subOption.name}</span>
+              </div>
+            </div>
+          ))}
+        </div>
       )}
     </div>
   );
 };
 
-const Sidebar = (props) => {
+const Sidebar = () => {
   const location = useLocation();
   const [selectedIndex, setSelectedUrl] = useState("");
   let { entity } = useParams();
   let constantConfig = menuItems[entity] || {};
 
   useEffect(() => {
-    const resultArray = location.pathname;
-    setSelectedUrl(resultArray);
+    setSelectedUrl(location.pathname);
   }, [location.pathname]);
 
   const handleItemClick = (name) => {
@@ -85,21 +77,17 @@ const Sidebar = (props) => {
 
   return (
     <div className='sidebar-container'>
-      <Drawer variant="permanent" anchor="left" open>
-        <div>
-          <List>
-            {constantConfig.map((item) => (
-              <SidebarItem
-                key={item.name}
-                item={item}
-                handleClick={handleItemClick}
-                selectedIndex={selectedIndex}
-                setSelectedUrl={setSelectedUrl}
-              />
-            ))}
-          </List>
-        </div>
-      </Drawer>
+      <div className="sidebar">
+        {constantConfig.map((item) => (
+          <SidebarItem
+            key={item.name}
+            item={item}
+            handleClick={handleItemClick}
+            selectedIndex={selectedIndex}
+            setSelectedUrl={setSelectedUrl}
+          />
+        ))}
+      </div>
     </div>
   );
 };

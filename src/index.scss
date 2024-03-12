@@ -1,10 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 @import "./Styles/variables";
+// @import "./Styles/mixins";
 // @import "./Styles/mixins";
 
 body {
   margin: 0;
-  padding: 20px;
   background-color: white;
 }
 * {
@@ -147,8 +146,8 @@ main {
 
 .title-page-heading {
   color: rgba(0, 0, 0, 0.87);
-  font-weight: 700;
-  font-size: 30px !important;
+  font-weight: 650;
+  font-size: 27px !important;
   padding-top: 4px;
 }
 
@@ -170,62 +169,22 @@ main {
   border: solid 2px #8080801f;
   height: 70vh !important;
 }
-.button-group {
-  display: block;
-  text-align: center;
-  margin-bottom: 50px;
-  margin-top: 30px;
-  padding-left: 76px;
-  padding-right: 45px;
+
+.paper {
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 20px; /* Adjust padding as needed */
 }
+
+
+
 
 .filters-adjust-left {
   padding-right: 35px;
-}
-
-.button-selected {
-  background-color: $Primary-color;
-  color: white;
-  &:hover {
-    background-color: $Primary-color; /* or whatever background color you want */
-  }
-  
-}
-
-.button-not-selected {
-  background-color: #edf6ff;
-  color: $Primary-color;
-  &:not([disabled]):not(:disabled):hover {
-    background-color: #edf6ff /* or whatever background color you want */
-  }
-}
-
-.button-custom-form {
-  width: 175px;
-  border-radius: 6px;
-  border: #e5dbdbb8 1px solid;
-  height: 50px;
-  padding: 10px;
-  border: 1px solid #8080804d;
-}
-.button-capsule-left {
-  height: 32px;
-  white-space: nowrap;
-  border-top-left-radius: 21px;
-  border-bottom-left-radius: 21px;
-  border: 1px solid #8080804d;
-  padding: 10px;
-
+  flex: 1;
 }
 
 
-.button-capsule-right {
-  height: 32px;
-  white-space: nowrap;
-  border-top-right-radius: 21px;
-  border-bottom-right-radius: 21px;
-  border: 1px solid #8080804d;
-}
 
 .main-component-options-strip{
   margin-left: 43%
@@ -265,4 +224,35 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-right: 12px;
+  margin-bottom: 15px;
+}
+
+.icon-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: inherit;
+  color: inherit;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #007bff; // Change color on hover as per your design
+  }
+}
+
+
+
+.typography-btn {
+  cursor: pointer;
+  color: #333; /* Set your desired color */
+  font-size: 1.25rem; /* Adjust font size as needed */
+  font-weight: bold; /* Adjust font weight as needed */
+  text-decoration: none; /* Remove default underline */
+  border-bottom: 1px solid transparent; /* Add underline */
+  transition: border-color 0.2s ease; /* Add transition effect */
+  
+  &:hover {
+    border-color: #333; /* Change border color on hover */
+  }
 }

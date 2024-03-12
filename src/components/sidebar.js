@@ -3,52 +3,56 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import menuItems from '../config/sidebar.json';
 import './style/sidebar.scss';
 
-
 const findCurrentStateForSidebar = (pathname, targetString) => {
   const normalizedPathname = pathname.toLowerCase().replace(/\s/g, '');
   const normalizedTargetString = targetString.toLowerCase().replace(/\s/g, '');
   const result = normalizedPathname.includes(normalizedTargetString);
-
   return result;
 };
 
 const SidebarItem = ({ item, depth = 0, selectedIndex, setSelectedUrl, handleClick }) => {
   const navigate = useNavigate();
   const location = useLocation();
-  const isOpen = item.url ? location.pathname === item.url : false;
-  const [open, setOpen] = useState(isOpen);
+  const [open, setOpen] = useState(false);
 
-  const handleItemClick = () => {
+  useEffect(() => {
+    setOpen(findCurrentStateForSidebar(location.pathname, item.name));
+  }, [location.pathname, item.name]);
+
+  const handleParentItemClick = () => {
     if (item.url) {
       navigate(item.url);
       setSelectedUrl(item.url);
-    } else if (item.children) {
-      setOpen(!open);
+    } else {
+      setOpen(!open); // Toggle the open state
+      if (handleClick) {
+        handleClick(item.name);
+      }
     }
-    if (handleClick) {
-      handleClick(item.name);
-    }
+  };
+
+  const handleNestedItemClick = (url) => {
+    navigate(url);
+    setSelectedUrl(url);
   };
 
   return (
     <div>
-      <div className={`sidebar-item ${selectedIndex === item.url ? 'selected' : ''} ${depth > 0 ? 'nested' : 'main'} hover`} onClick={handleItemClick}>
-        <div className="sidebar-item-content">
-          {item.children && (open ? '-' : '+')}
-          <span>{item.name}</span>
-        </div>
+      <div
+        onClick={handleParentItemClick}
+        className={`sidebar-item ${selectedIndex === item.url ? 'selected' : ''} ${depth > 0 ? 'nested' : ''}`}
+      >
+        {item.children && (open ? '-' : '+')}
+        <span>{item.name}</span>
       </div>
-      {item.children && (
-        <div className={`sidebar-item-children ${open ? 'open' : 'closed'}`}>
+      {item.children && open && (
+        <div className="sidebar-item-children">
           {item.children.map((subOption) => (
-            <SidebarItem
-              key={subOption.name}
-              item={subOption}
-              depth={depth + 1}
-              handleClick={handleClick}
-              selectedIndex={selectedIndex}
-              setSelectedUrl={setSelectedUrl}
-            />
+            <div key={subOption.name} onClick={() => handleNestedItemClick(subOption.url)}>
+              <div className={`sidebar-item ${selectedIndex === subOption.url ? 'selected' : ''} nested`}>
+                <span>{subOption.name}</span>
+              </div>
+            </div>
           ))}
         </div>
       )}
@@ -56,7 +60,7 @@ const SidebarItem = ({ item, depth = 0, selectedIndex, setSelectedUrl, handleCli
   );
 };
 
-const Sidebar = (props) => {
+const Sidebar = () => {
   const location = useLocation();
   const [selectedIndex, setSelectedUrl] = useState("");
   let { entity } = useParams();

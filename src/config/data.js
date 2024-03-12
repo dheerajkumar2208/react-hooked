@@ -879,7 +879,7 @@ const dropdownValues = {
     "requestId": "48ca8685-b2f6-461c-a069-f6919c6abf29",
     "gsfException": null
 },
-  MC_WIZARD_TAX_RPT_GENERIC :{
+  MC_WIZARD_TAX_RPT_GENERICc:{
     "msg": "Query Executed!",
     "status": "SUCCESS",
     "data": {

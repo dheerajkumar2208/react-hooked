@@ -1,18 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Grid, IconButton, Popover, TextField, Typography, Button, InputAdornment } from '@mui/material';
-// import EditIcon from '@mui/icons-material/Edit';
-// import DeleteIcon from '@mui/icons-material/Delete';
-// import SearchIcon from '@mui/icons-material/Search';
-// import CloseIcon from '@mui/icons-material/Close';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrashAlt, faSearch, faTimes } from '@fortawesome/free-solid-svg-icons';
 import CsvFileUpload from './csvFileUpload';
-
+import Button from "./Button";
 const CustomTextField = ({ mode, keyName, label, value, onSave }) => {
-  const [isEditOpen, setEditOpen] = useState(false);
-  const [isSearchOpen, setSearchOpen] = useState(false);
+  const [isModalOpen, setModalOpen] = useState(false);
   const [localValue, setLocalValue] = useState(value || ''); // Use local state for changes
-  // const [searchText, setSearchText] = useState('');
   const [highlightedText, setHighlightedText] = useState(value || '');
 
   useEffect(() => {
@@ -28,19 +21,11 @@ const CustomTextField = ({ mode, keyName, label, value, onSave }) => {
   };
 
   const handleEditClick = () => {
-    setEditOpen(true);
+    setModalOpen(true);
   };
 
-  const handleEditClose = () => {
-    setEditOpen(false);
-  };
-
-  const handleSearchClick = () => {
-    setSearchOpen(true);
-  };
-
-  const handleSearchClose = () => {
-    setSearchOpen(false);
+  const handleCloseModal = () => {
+    setModalOpen(false);
   };
 
   const handleTextAreaChange = (event) => {
@@ -54,18 +39,17 @@ const CustomTextField = ({ mode, keyName, label, value, onSave }) => {
       onSave(localValue, keyName);
       setLocalValue('');
     }
-    setEditOpen(false); // Close the popover after saving
+    setModalOpen(false); // Close the modal after saving
   };
+
   const handleDeleteClick = () => {
     if (onSave) {
       onSave('', keyName);
       setLocalValue('');
     }
-    // setEditOpen(false); // Close the popover after saving
   };
 
   const handleSearchChange = (event) => {
-    // setSearchText(event.target.value);
     highlightText(event.target.value);
   };
 
@@ -74,10 +58,10 @@ const CustomTextField = ({ mode, keyName, label, value, onSave }) => {
       setHighlightedText(localValue);
       return;
     }
-  
+
     const escapedSearchText = searchText.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // Escape special characters
     const parts = localValue.split(new RegExp(`(${escapedSearchText})`, 'gi'));
-  
+
     setHighlightedText(
       parts.map((part, index) =>
         part.toLowerCase() === searchText.toLowerCase() ? (
@@ -91,146 +75,68 @@ const CustomTextField = ({ mode, keyName, label, value, onSave }) => {
     );
   };
 
-
   return (
-    <Grid
-      container
-      spacing={1}
-      alignItems="center"
-      sx={{
-        border: '1px solid #8080805e',
-        height: 50,
-        backgroundColor: '#f0f0f0',
-        paddingLeft: '12px',
-        paddingRight: '12px',
-
-      }}
-    >
-      <Grid item xs={9}>
-        <Typography variant="body1">
-          {`${label} (Max 100)`}
-        </Typography>
-      </Grid>
-      <Grid item xs={3} sx={{ textAlign: 'right' }}>
+    <div className='form-upload-files'>
+      <span>
+        <h6>{`${label} (Max 100)`}</h6>
+      </span>
+      <div>
         {mode === 'create' && (
           <>
-           <button className='icon-button' onClick={handleEditClick}>
-        <FontAwesomeIcon icon={faEdit} /> 
-        </button>
-            {/* <IconButton onClick={handleEditClick}>
-              <EditIcon />
-            </IconButton> */}
+            <button className='icon-button' onClick={handleEditClick}>
+              <FontAwesomeIcon icon={faEdit} /> 
+            </button>
             <CsvFileUpload onFileUpload={handleFileUpload} />
           </>
         )}
         {mode === 'modify' && (
           <>
-            {/* <IconButton onClick={handleEditClick}>
-              <EditIcon />
-            </IconButton> */}
             <button className='icon-button' onClick={handleEditClick}>
-        <FontAwesomeIcon icon={faEdit} /> 
-        </button>
-        <button className='icon-button' onClick={openPophandleSearchClickover}>
-        <FontAwesomeIcon icon={faSearch} /> 
-        </button>
-        <button className='icon-button' onClick={handleDeleteClick}>
-        <FontAwesomeIcon icon={faTrashAlt} /> 
-        </button>
-            {/* <IconButton onClick={handleSearchClick}>
-              <SearchIcon />
-            </IconButton>
-            <IconButton>
-              <DeleteIcon onClick={handleDeleteClick}/>
-            </IconButton> */}
+              <FontAwesomeIcon icon={faEdit} /> 
+            </button>
+            <button className='icon-button' onClick={handleDeleteClick}>
+              <FontAwesomeIcon icon={faTrashAlt} /> 
+            </button>
+            <button className='icon-button' onClick={handleSearchChange}>
+              <FontAwesomeIcon icon={faSearch} /> 
+            </button>
           </>
         )}
-      </Grid>
-      <Popover
-        open={isEditOpen || isSearchOpen}
-        anchorEl={document.body}
-        onClose={isSearchOpen ? handleSearchClose : handleEditClose}
-        anchorOrigin={{
-          vertical: 'center',
-          horizontal: 'center',
-        }}
-        transformOrigin={{
-          vertical: 'center',
-          horizontal: 'center',
-        }}
-      >
-        <Grid
-          container
-          spacing={1}
-          sx={{
-            padding: 3,
-            borderRadius: '10px',
-          }}
-        >
-          <Grid item xs={11}>
-            <Typography variant="h6" sx={{ marginBottom: '10px' }}>
-              {label}
-            </Typography>
-          </Grid>
-          <Grid item xs={1}>
-            {/* <IconButton onClick={isSearchOpen ? handleSearchClose : handleEditClose}>
-              <CloseIcon />
-            </IconButton> */}
-            <button className='icon-button' onClick={isSearchOpen ? handleSearchClose : handleEditClose}>
-        <FontAwesomeIcon icon={faTimes} /> 
-        </button>
-
-          </Grid>
-          <Grid item xs={12}>
-            {isSearchOpen && (
-              <>
-              <TextField
-                placeholder="Search..."
-                variant="outlined"
-                fullWidth
-                onChange={handleSearchChange}
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <IconButton onClick={handleSearchClose}>
-                        <CloseIcon />
-                      </IconButton>
-                    </InputAdornment>
-                  ),
-                }}
-                sx={{ marginBottom: 2 }}
+      </div>
+      {isModalOpen && (
+        <div className="modal">
+          <div className="modal-content">
+            <span className='modal-heading-layout'>
+            <h6 className='heading'>{label}</h6>
+            <button className='icon-button' onClick={handleCloseModal}>
+              <FontAwesomeIcon icon={faTimes} /> 
+            </button>
+            
+              
+            </span>
+            
+            <div>
+              <textarea
+                rows={15}
+                name={keyName}
+                value={localValue}
+                onChange={handleTextAreaChange}
+                placeholder="Enter text here"
               />
-
-              <div>{highlightedText}</div></>
-            )}
-              {isEditOpen && (
-                <>
-            <TextField
-              multiline
-              rows={15}
-              name={keyName}
-              value={localValue}
-              onChange={handleTextAreaChange}
-              placeholder="Enter text here"
-              variant="standard"
-              fullWidth
-              sx={{
-                border: 'none',
-              }}x
-            />
-           
-          
-              <Grid item xs={12} sx={{ textAlign: 'right' }}>
-                <Button variant="contained" onClick={handleSaveClick}>
-                  Save
-                </Button>
-              </Grid>
-              </>
-            )}
-          </Grid>
-        </Grid>
-      </Popover>
-    </Grid>
+              <div>
+                <Button
+            variant="primary"
+            
+            onClick={handleSaveClick}
+          >
+            Save
+          </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
   );
 };
 

@@ -196,13 +196,15 @@
             "type": "dropdown",
             "name": "company_code",
             "label": "Company Code",
-            "required": true
+            "required": true,
+            "isMultiSelect": true
           },
           {
             "type": "dropdown",
             "name": "country",
             "label": "Country",
-            "required": true
+            "required": true,
+            "isMultiSelect": true
           },
           {
             "type": "dropdown",

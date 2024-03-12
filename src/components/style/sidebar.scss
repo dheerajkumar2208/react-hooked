@@ -1,125 +1,51 @@
 @import "../../Styles/variables";
 
-// .collapse-margin {
-//      /* margin-left: 12%; */
-//      margin-top: 0%;
-//      /* margin-bottom: 1%; */
-//     //  padding-left: 27%;
-//   // border-left: solid black 2px;
-// }
-// .sidebar-container{
-//   height: 100% !important;
-//   overflow-y: auto !important;
-//   .MuiDrawer-paper{
-//     background-color:white;
-//     top: 65px;
-//     min-width: 8%;
-//     width: 12%;
-//     height: 95vh;
-//     padding-top : 20px;
-//   }
-//   .MuiListItem-root:hover{
-//     background-color:$Primary-color
-//     }
-
-// }
-
-// .sidebar-child-listitem{
-
-//   text-decoration: none;
-//     padding: 0px;
-//     padding-left: 6px;
-//     padding-bottom: 0px !important;
-//     &:hover {
-//      border-radius: 5px;
-//      color: white !important; // Change this to the desired hover font color
-//     }
-//       &.selected {
-//         background-color:$Primary-color;
-//   color: white;
-//   border-radius: 5px
-//       }
-
-// }
-
-// .sidebar-child-navlink{
-//   text-decoration: none;
-//   font-size: 13px;
-//   padding-left: 15px;
-
-// }
-// .nested-list-item{
-//   text-decoration: none;
-//   font-size: 13px;
-//   padding-left: 25px;
-
-// }
-// .MuiList-root{
-
-//   padding-top: 0px;
-//   padding-left: 6px;
-//   padding-right: 6px
-
-// }
-
-// .list-item-text{
-//   .MuiListItemText-primary {
-//     font-weight: 300
-//   }
-
-// }
-
 .sidebar-container {
-  width: 250px; /* Adjust as needed */
+  width: 220px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  padding-right: 10px;
+  height: 100vh;
+  padding-top: 25px;
 }
 
+.sidebar-item {
+  cursor: pointer;
+  padding: 10px;
+  padding-left: 7px;
 
-.sidebar-item.nested.hover:hover {color: white;
-  border-radius: 5px;  background-color: $Primary-color;
-}
-.sidebar-item.main.hover:hover {
-  color: white;
-        border-radius: 5px;
-        background-color: $Primary-color;
-}
+  &:hover {
+    color: white;
+    border-radius: 5px;
+    background-color: $Primary-color; /* Use the primary color variable for background */
+  }
 
-.sidebar {
-  .sidebar-item {
-    cursor: pointer;
-    padding: 10px;
-    padding-left: 7px;
+  &.nested {
+    padding-left: 20px; /* Indent nested items */
+  }
 
-    &.nested {
-      padding-left: 20px; /* Indent nested items */
-      &:hover {
-        background-color: $Primary-color;
-        color: white;
-        border-radius: 5px;
-      }
+  .sidebar-item-content {
+    display: flex;
+    align-items: center;
+
+    span {
+      margin-left: 10px; /* Spacing between icon and text */
     }
-   
+  }
 
-    .sidebar-item-content {
-      display: flex;
-      align-items: center;
+  .sidebar-item-children {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease; /* Smooth animation for opening and closing */
+    padding-left: 20px; /* Indent nested items */
+  }
 
-      span {
-        margin-left: 10px; /* Spacing between icon and text */
-      }
-    }
+  &.open .sidebar-item-children {
+    max-height: 1000px; /* Adjust max-height as needed */
+  }
 
-    .sidebar-item-children {
-      display: none;
-      padding-left: 20px; /* Indent nested items */
-
-      &.open {
-        display: block;
-      }
-      &.selected {
-        background-color: $Primary-color;
-        color: white;
-        border-radius: 5px;
-      }
-    }
+  &.selected {
+    background-color: $Primary-color; /* Use the primary color variable for background */
+    color: white;
+    border-radius: 5px;
   }
 }

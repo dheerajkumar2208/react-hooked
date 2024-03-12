@@ -1,12 +1,6 @@
 /* Add your SCSS styles here */
+@import "../../Styles/variables";
 
-.popover-layout {
-  /* Styles for popover layout */
-}
-
-.table-container {
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
 
 table {
   /* Styles for table */
@@ -41,10 +35,38 @@ tr:nth-child(odd) {
 .table-pagination {
   /* Styles for pagination */
 }
+
 .textfield-style {
-      max-width: 100px;
-    border: 1px solid #bcbcbc;
+    max-width: 100px;
+    border: 1.5px solid $border-color;
     height: 30px;
     border-radius: 5px;
+    &:focus-visible {
+      outline: none; /* Remove default outline */
+      border: 1px solid $Primary-color; /* Add border on focus */
+      box-shadow: 0 0 4px rgba(0, 123, 255, 0.5); /* Add box shadow on focus */
+    }
 }
+.right-line-sep {
+  border-right: 1.5px solid  #bcbcbc;
+}
+
+.filter-row{
+  height: 60px;
+    border: 1.5px solid $border-color;
+    margin-top: 20px;
+}
+.header-row{
+  height: 35px;
+}
+
+input {
+  &:focus {
+    outline: none; /* Remove default outline */
+    border: 1px solid $Primary-color; /* Add border on focus */
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.5); /* Add box shadow on focus */
+  }
+
+}
+ 
 
